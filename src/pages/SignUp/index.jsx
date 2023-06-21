@@ -5,13 +5,18 @@ import { ButtonText } from "../../components/ButtonText";
 
 import logoImg from "../../assets/logo.svg";
 
-export function SignIn() {
+export function SignUp() {
   return (
     <Container>
       <img src={logoImg} alt='' />
 
       <Form>
-        <h1>Faça login</h1>
+        <h1>Crie sua conta</h1>
+
+        <div className='input-wrapper'>
+          <label htmlFor='name'>Seu nome</label>
+          <Input placeholder='Exemplo: Maria da Silva' type='text' />
+        </div>
 
         <div className='input-wrapper'>
           <label htmlFor='email'>Email</label>
@@ -23,9 +28,9 @@ export function SignIn() {
           <Input placeholder='No mínimo 6 caracteres' type='password' />
         </div>
 
-        <Button title='Entrar' />
+        <Button title='Criar conta' />
 
-        <ButtonText title='Criar uma conta' />
+        <ButtonText title='Já tenho uma conta' />
       </Form>
     </Container>
   );
