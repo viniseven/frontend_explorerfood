@@ -9,6 +9,10 @@ export default {
     TOMATO_100: "#750310"
   },
 
+  GRADIENT: {
+    GRAD_200: 'linear-gradient(180deg, #091E26 0%, #00131C 100%)'
+  },
+
   FONTS: {
     ROBOTO: 'Roboto',
     POPPINS: 'Poppins'
