@@ -5,6 +5,8 @@ export const Container = styled.div`
 
   padding: 5.6rem 0 2.4rem;
 
+  grid-area: header;
+
   display: flex;
   align-items: flex-start;
   justify-content: space-around;

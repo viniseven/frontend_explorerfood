@@ -2,7 +2,7 @@ import { Container } from "./styles";
 
 import { Header } from "../../components/Header";
 
-import cookie from "../../assets/cakes_home.svg";
+import cookie from "../../assets/cookie.svg";
 
 export function Home() {
   return (
@@ -12,7 +12,7 @@ export function Home() {
         <img src={cookie} alt='' />
         <div>
           <h1>Sabores inigualáveis</h1>
-          <p>Sinta o cuidado do prepato com ingredientes selecionados</p>
+          <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
         </div>
       </div>
     </Container>
