@@ -11,39 +11,43 @@ export const Container = styled.div`
   gap: 4.4rem;
 
   .header-info{
-    width: 37.6rem;
-    height: 12rem;
-
-    position: relative;
+    background: ${({ theme }) =>  theme.GRADIENT.GRAD_200};
 
     display: flex;
-    align-items: center;
-   
-    margin: 0 3.0rem 1.6rem;
 
-    border-radius: 3px;
+    height: 12rem;
 
-    background: ${({ theme }) => theme.GRADIENT.GRAD_200};
-
-    div {
-      margin-left: 15rem;
-    }
+    margin:  0 1.6rem 0 3.0rem;
 
     img {
-      position: absolute;
+      display: block;
+      position: relative;
+     
+      width: 19.1rem;
+      height: 14.9rem;
 
-      top: -30px;
       left: -30px;
+      top: -30px;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: initial;
+    
+      position: relative;
+      right: 2.7rem;
 
-    p{
-      font-size: 1.2rem;
-      font-weight: 400;
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   }
+
 `;
