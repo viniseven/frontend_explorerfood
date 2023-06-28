@@ -1,16 +1,30 @@
 import { Container } from "./styles";
 
-import logoImg from "../../assets/logo.svg";
+import icon from "../../assets/icon_explorer.svg";
 
 import { ButtonText } from "../ButtonText";
+import { Sidebar } from "../Sidebar";
 
 import { List, Receipt } from "@phosphor-icons/react";
+import { useState } from "react";
 
 export function Header() {
+  const [sidebar, setSideBar] = useState(false);
+
+  function showSideBar() {
+    setSideBar(!sidebar);
+  }
+
   return (
     <Container>
-      <ButtonText icon={List} />
-      <img src={logoImg} alt='' />
+      <ButtonText icon={List} onClick={showSideBar} />
+      {sidebar && <Sidebar active={setSideBar} />}
+
+      <div>
+        <img src={icon} alt='' />
+        <h1>food explorer</h1>
+      </div>
+
       <ButtonText icon={Receipt} />
     </Container>
   );

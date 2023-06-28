@@ -9,6 +9,11 @@ export const Container = styled.div`
  
   margin-top: 8px;
 
+  display: flex;
+  align-items: center;
+
+  padding-left: 1.6rem;
+
 
   > input {
     width: 100%;

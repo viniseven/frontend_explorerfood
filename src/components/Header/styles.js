@@ -8,12 +8,18 @@ export const Container = styled.div`
   grid-area: header;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  > img{
-    width: 15rem;
+  h1 {
+    font-size: 2.1rem;
   }
+
+  > div {
+    display: flex;
+    gap: 8px;
+  }
+
 `

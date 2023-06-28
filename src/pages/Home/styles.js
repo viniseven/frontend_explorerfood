@@ -42,10 +42,12 @@ export const Container = styled.div`
       h1 {
         font-size: 1.6rem;
         font-weight: 600;
+        margin-bottom: 8px;
       }
 
       p {
         font-size: 1rem;
+        line-height: 140%;
       }
     }
   }
