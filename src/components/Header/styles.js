@@ -22,4 +22,25 @@ export const Container = styled.div`
     gap: 8px;
   }
 
+  .receipt{
+    span {
+      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+      border-radius: 100px;
+
+      position: relative;
+      top: 0;
+      right: 20px;
+
+      width: 20px;
+      height: 20px;
+
+      padding: 2px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
 `

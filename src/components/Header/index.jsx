@@ -25,7 +25,10 @@ export function Header() {
         <h1>food explorer</h1>
       </div>
 
-      <ButtonText icon={Receipt} />
+      <div className='receipt'>
+        <ButtonText icon={Receipt} />
+        <span>0</span>
+      </div>
     </Container>
   );
 }
