@@ -23,6 +23,10 @@ max-width: 93vw;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_300};
 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
   h1{
     font-size: 1.4rem;
   }
@@ -33,8 +37,6 @@ max-width: 93vw;
 
   span{
     color: ${({ theme }) => theme.COLORS.CAKE};
-
-    margin-top: 12px;
   }
 }
 }
