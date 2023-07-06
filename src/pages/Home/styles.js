@@ -52,4 +52,16 @@ export const Container = styled.div`
     }
   }
 
+  .main{
+    grid-area: content;
+
+    margin-top: 6.2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    padding: 0 2.4rem;
+  }
+
 `;
