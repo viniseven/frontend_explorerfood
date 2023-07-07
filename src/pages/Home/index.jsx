@@ -3,6 +3,7 @@ import { Container } from "./styles";
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
 import { Carrousel } from "../../components/Carrousel";
+import { Footer } from "../../components/Footer";
 
 import cookie from "../../assets/cookie.svg";
 
@@ -22,11 +23,9 @@ export function Home() {
         <Section title='Refeições'>
           <Carrousel />
         </Section>
-
-        <Section title='Pratos principais'>
-          <Carrousel />
-        </Section>
       </div>
+
+      <Footer />
     </Container>
   );
 }

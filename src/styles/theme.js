@@ -10,7 +10,8 @@ export default {
     LIGHT_400: "#C4C4CC",
     LIGHT_300: "#E1E1E6",
     TOMATO_100: "#750310",
-    CAKE: "#82F3FF"
+    CAKE: "#82F3FF",
+    WHITE: "#FFFFFF"
   },
 
   GRADIENT: {

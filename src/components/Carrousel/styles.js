@@ -26,18 +26,46 @@ max-width: 93vw;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+}
 
-  h1{
+.card{
+  margin-top: 2.4rem;
+
+  position: relative;
+  
+  h1 {
     font-size: 1.4rem;
+    font-weight: 500;
   }
 
   p{
-   display: none;
+    display: none;
   }
 
   span{
     color: ${({ theme }) => theme.COLORS.CAKE};
   }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
+
+.favorite{
+  position: absolute;
+  right: 16px;
+
+  svg {
+     fill: red;
+  }
 }
 `
