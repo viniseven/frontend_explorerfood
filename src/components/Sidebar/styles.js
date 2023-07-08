@@ -35,21 +35,25 @@ animation: moveSide 0.3s;
 }
 
 .content {
- padding: 3.6rem 2.8rem 0;
+ margin: 3.6rem 2.8rem ;
 
  display: flex;
  flex-direction: column;
- gap: 3.6rem;
+ gap: 4.6rem;
 
- > button {
+ > div {
+  button {
   text-align: left;
   
-  font-weight: lighter;
+  font-weight: light;
   font-size: 2.4rem;
 
   padding-bottom: 10px;
 
+  width: 100%;
+
   border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_600};
+  }
  }
 }
 

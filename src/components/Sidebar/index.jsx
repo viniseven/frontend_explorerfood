@@ -4,6 +4,7 @@ import { X } from "@phosphor-icons/react";
 
 import { Input } from "../Input";
 import { ButtonText } from "../ButtonText";
+import { Footer } from "../Footer";
 
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
@@ -25,8 +26,12 @@ export function Sidebar({ active }) {
           icon={MagnifyingGlass}
         />
 
-        <ButtonText title='Sair' />
+        <div>
+          <ButtonText title='Novo prato' />
+          <ButtonText title='Sair' />
+        </div>
       </div>
+      <Footer />
     </Container>
   );
 }

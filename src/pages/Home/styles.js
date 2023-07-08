@@ -4,64 +4,57 @@ export const Container = styled.div`
   display: grid;
   grid-template-areas: 
   "header"
-  "header-info"
-  "content";
+  "content"
+  "footer";
 
-  grid-template-columns: 1fr;
+  grid-template-rows: 114px auto 77px;
   gap: 4.4rem;
 
-  .header-info{
+  min-height: 100vh;
+
+`;
+
+export const Content = styled.div`
+  grid-area: content;
+
+  > div:nth-child(1){
+   height: 12rem;
+
     background: ${({ theme }) =>  theme.GRADIENT.GRAD_200};
 
     display: flex;
+    align-items: center;
+    flex-shrink: 0;
 
-    height: 12rem;
+    margin: 0 1.6rem 6.2rem;
 
-    margin:  0 1.6rem 0 3.0rem;
+    border-radius: 3px;
 
     img {
-      display: block;
       position: relative;
-     
-      width: 19.1rem;
+      left: -30px;
+      top: -14px;
+
+      width: 16.9rem;
       height: 14.9rem;
 
-      left: -30px;
-      top: -30px;
     }
 
-    > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: initial;
-    
-      position: relative;
-      right: 2.7rem;
+    div {
+      width: 21rem;
 
-      h1 {
-        font-size: 1.6rem;
+      position: absolute;
+      right: 1rem;
+
+      h1{
+        font-size: 1.8rem;
         font-weight: 600;
-        margin-bottom: 8px;
       }
 
-      p {
-        font-size: 1rem;
-        line-height: 140%;
+      p{
+        font-size: 1.2rem;
+        font-weight: 400;
       }
     }
   }
-
-  .main{
-    grid-area: content;
-
-    margin-top: 6.2rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-
-    padding: 0 2.4rem;
-  }
-
 `;

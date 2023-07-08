@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  grid-area: footer;
+
   width: 100%;
 
   display: flex;
@@ -10,6 +12,10 @@ export const Container = styled.div`
   padding: 3rem 0rem;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
+  position: relative;
+  bottom: 0;
+
 
   .brand{
     display: flex;

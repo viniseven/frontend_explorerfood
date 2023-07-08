@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
@@ -11,19 +11,19 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <div className='header-info'>
-        <img src={cookie} alt='' />
+      <Content>
         <div>
-          <h1>Sabores inigualáveis</h1>
-          <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
+          <img src={cookie} alt='Imagem de cookies flutuando no ar' />
+          <div>
+            <h1>Sabores inigualáveis</h1>
+            <p>Sinta o cuidado do prepato com ingredientes selecionados</p>
+          </div>
         </div>
-      </div>
 
-      <div className='main'>
         <Section title='Refeições'>
           <Carrousel />
         </Section>
-      </div>
+      </Content>
 
       <Footer />
     </Container>
