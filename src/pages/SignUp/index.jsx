@@ -4,23 +4,25 @@ import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 
 import logoImg from "../../assets/logo.svg";
-
 export function SignUp() {
   return (
     <Container>
-      <img src={logoImg} alt='' />
+      <div className='brand'>
+        <img src={logoImg} alt='' />
+        <h1>food explorer</h1>
+      </div>
 
       <Form>
         <h1>Crie sua conta</h1>
 
         <div className='input-wrapper'>
-          <label htmlFor='name'>Seu nome</label>
+          <label htmlFor='email'>Seu nome</label>
           <Input placeholder='Exemplo: Maria da Silva' type='text' />
         </div>
 
         <div className='input-wrapper'>
-          <label htmlFor='email'>Email</label>
-          <Input placeholder='Exemplo: exemplo@exemplo.com.br' type='text' />
+          <label htmlFor='password'>Email</label>
+          <Input placeholder='Exemplo: exemplo@exemplo.com.br' type='email' />
         </div>
 
         <div className='input-wrapper'>

@@ -4,8 +4,6 @@ import { X } from "@phosphor-icons/react";
 
 import { Input } from "../Input";
 import { ButtonText } from "../ButtonText";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
 
 import { MagnifyingGlass } from "@phosphor-icons/react";
 

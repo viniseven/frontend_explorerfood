@@ -19,6 +19,10 @@ export function Home() {
             <p>Sinta o cuidado do prepato com ingredientes selecionados</p>
           </div>
         </div>
+
+        <Section title='Refeições'>
+          <Carrousel />
+        </Section>
       </Content>
 
       <Footer />

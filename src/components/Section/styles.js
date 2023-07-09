@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%;
+  width: 100vw;
 
   h2{
     font-size: 1.8rem;

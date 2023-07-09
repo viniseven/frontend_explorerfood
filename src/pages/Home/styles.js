@@ -27,7 +27,7 @@ export const Content = styled.div`
 
     width: 37.6rem;
 
-    margin: 0 auto;
+    margin: 0 auto 6.2rem;
 
     img {
       position: relative;

@@ -8,7 +8,10 @@ import logoImg from "../../assets/logo.svg";
 export function SignIn() {
   return (
     <Container>
-      <img src={logoImg} alt='' />
+      <div className='brand'>
+        <img src={logoImg} alt='' />
+        <h1>food explorer</h1>
+      </div>
 
       <Form>
         <h1>Faça login</h1>

@@ -1,47 +1,84 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div` 
-  margin: 15.8rem auto;
+ width: 100%;
 
-  padding: 0 4.7rem;
+ display : flex;
+ flex-direction: column;
+ align-items: center;
 
-  @media (min-width: 800px) {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10.8rem;
+ .brand{
+  margin-top: 15.8rem;
+
+  display: flex;
+  gap: 10px;
+
+  h1{
+    font-size: 3.7rem;
+    font-weight: 700;
   }
+ }
+
+ @media(min-width: 800px){
+  flex-direction: row;
+  justify-content: space-around;
+
+  margin: 0 auto;
+  align-items: center;
+  height: 100vh;
+ }
+
 `;
 
 export const Form = styled.form`
+  margin-top: 7.3rem;
+
+  padding: 0 4.7rem;
+
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 
-  border-radius: 16px;
-
-  h1{
-    color: ${({ theme}) => theme.COLORS.WHITE};
-
-    text-align: center;
-
-    visibility: hidden;
+  width: 100%;
+  
+  h1 {
+    display: none;
   }
 
-  label{
-    color: ${({ theme}) => theme.COLORS.WHITE};
-  }
-
-  @media (min-width: 800px) {
-    background-color: ${({ theme }) => theme.COLORS.DARK_700};
-
-    padding: 6.4rem;
-    width: 47.6rem;
-
-    h1{
-      visibility: visible;
-      font-weight: 500;
+  .input-wrapper{
+    label{
+      font-weight: 400;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
     }
   }
 
+    button:last-child {
+     font-size: 1.4rem;
+     font-weight: 500;
+     line-height: 24px;
+     color: ${({ theme }) => theme.COLORS.WHITE};
+
+     display: block;
+    }
+
+    @media(min-width: 800px){
+      background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
+      padding: 6.4rem;
+
+      border-radius: 16px;
+
+      width: 47.6rem;
+      height: auto;
+
+      h1{
+        display: block;
+
+        font-size: 3.2rem;
+        font-weight: 500;
+        line-height: 140%;
+
+        text-align: center;
+      }
+ }
 `;
