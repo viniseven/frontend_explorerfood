@@ -13,4 +13,5 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
 
+  width: auto;
 `;

@@ -7,13 +7,10 @@ export const Container = styled.div`
 
   border-radius: 8px;
  
-  margin-top: 8px;
-
   display: flex;
   align-items: center;
 
   padding-left: 1.6rem;
-
 
   > input {
     width: 100%;

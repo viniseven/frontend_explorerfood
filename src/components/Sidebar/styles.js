@@ -1,62 +1,31 @@
 import styled  from 'styled-components'
 
 export const Container = styled.div`
-background-color: ${({ theme}) => theme.COLORS.BACKGROUND};
-
-position: fixed;
-top: 0;
-left: 0;
-
-z-index: 10;
-
-width: 100vw;
-height: 100vh;
-
-display: flex;
-flex-direction: column;
-
-animation: moveSide 0.3s;
-
-.header {
- display: flex;
- align-items: center;
- gap: 1.6rem;
-
- background-color: ${({ theme }) => theme.COLORS.DARK_700};
-
- width: 100%;
-
- padding: 5.6rem 2.8rem 2.4rem;
-
- h1 {
-  font-size: 2.1rem;
-  font-weight: 400;
- }
-}
-
-.content {
- margin: 3.6rem 2.8rem ;
-
- display: flex;
- flex-direction: column;
- gap: 4.6rem;
-
- > div {
-  button {
-  text-align: left;
-  
-  font-weight: light;
-  font-size: 2.4rem;
-
-  padding-bottom: 10px;
-
   width: 100%;
+  height: 100%;
 
-  border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_600};
-  }
- }
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+
+  animation: moveSide 0.3s;
+
+  display: flex;
+  flex-direction: column;
+
+.topo-menu {
+  background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
+   padding: 5.6rem 2.8rem 2.4rem;
+   
+   width: 100%;
+
+   display: flex;
+   align-items: center;
 }
-
+  
 @keyframes moveSide{
   from {
     width: 0;
@@ -64,5 +33,28 @@ animation: moveSide 0.3s;
   to {
     width: 100%;
   }
-}
-`
+}`;
+
+export const ContentMenu = styled.div`
+  padding: 3.6rem 2.8rem 0;
+
+  background-color: ${({ theme}) => theme.COLORS.BACKGROUND};
+  
+  display: flex;
+  flex-direction: column;
+
+  .btn-actions{
+    margin-top: 4.6rem;
+
+    display: flex;
+    flex-direction: column;
+    
+    button {
+      font-size: 2.4rem;
+      font-weight: 300;
+      line-height: 140%;
+
+      border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_600};
+    }
+  }
+`;

@@ -13,10 +13,6 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  position: relative;
-  bottom: 0;
-
-
   .brand{
     display: flex;
     gap: 6px;
