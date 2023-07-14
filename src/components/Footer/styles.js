@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: footer;
@@ -13,18 +13,21 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  .brand{
+  position: absolute;
+  bottom: 0;
+
+  .brand {
     display: flex;
     gap: 6px;
 
-    p{
-      color: #4D585E;
+    p {
+      color: #4d585e;
       font-weight: 700;
       font-size: 1.5rem;
     }
   }
 
-  .copyright{
+  .copyright {
     font-size: 1.2rem;
   }
-`
+`;

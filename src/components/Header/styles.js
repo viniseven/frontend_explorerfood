@@ -1,50 +1,42 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-
-  padding: 5.6rem 2.8rem 2.4rem;
-
-  grid-area: header;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  div {
+  display: flex;
+  justify-content: space-around;
+
+  height: 11.4rem;
+
+  .logo {
     display: flex;
     gap: 8px;
+    align-items: center;
 
-    h1{
-      font-size: 2.1rem;
-      font-weight: 700;
-      font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+    h1 {
+      font-size: clamp(2.1rem, 2.02rem + 0.4vw, 2.5rem);
     }
   }
 
-  .receipt{
+  .receipt {
+    display: flex;
+    align-items: center;
+  }
+
+  span {
     position: relative;
+    bottom: 6px;
+    right: 10px;
 
-    span {
-      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+    background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 
-      border-radius: 100px;
+    border-radius: 100px;
 
-      position: absolute;
-      top: 0;
-      left: 20px;
+    width: 2rem;
+    height: 2rem;
 
-      width: 20px;
-      height: 20px;
+    text-align: center;
 
-      padding: 2px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    font-size: 1.4rem;
   }
-
-`
+`;

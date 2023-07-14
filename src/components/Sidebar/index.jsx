@@ -1,11 +1,12 @@
-import { Container, ContentMenu } from "./styles";
+import { Container, ContentMenu } from './styles';
 
-import { X } from "@phosphor-icons/react";
+import { X } from '@phosphor-icons/react';
 
-import { Input } from "../Input";
-import { ButtonText } from "../ButtonText";
+import { Input } from '../Input';
+import { ButtonText } from '../ButtonText';
+import { Footer } from '../Footer';
 
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import { MagnifyingGlass } from '@phosphor-icons/react';
 
 export function Sidebar({ active }) {
   const closeSidebar = () => {
@@ -14,7 +15,7 @@ export function Sidebar({ active }) {
 
   return (
     <Container sidebar={active}>
-      <div className='topo-menu'>
+      <div className="topo-menu">
         <ButtonText icon={X} onClick={closeSidebar} />
         <h1>Menu</h1>
       </div>
@@ -22,14 +23,15 @@ export function Sidebar({ active }) {
       <ContentMenu>
         <Input
           icon={MagnifyingGlass}
-          placeholder='Busque por pratos ou ingredientes'
+          placeholder="Busque por pratos ou ingredientes"
         />
 
-        <div className='btn-actions'>
-          <ButtonText title='Novo prato' />
-          <ButtonText title='Sair' />
+        <div className="btn-actions">
+          <ButtonText title="Novo prato" />
+          <ButtonText title="Sair" />
         </div>
       </ContentMenu>
+      <Footer />
     </Container>
   );
 }

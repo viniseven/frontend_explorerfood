@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   *{
@@ -17,8 +17,11 @@ export default createGlobalStyle`
     font-size: 1.6rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 
-    width: 100vw;
+    margin: 0 auto;
     height: 100vh;
+    max-width: 1920px;
+
+    border: 1px solid red;
   }
 
   a{

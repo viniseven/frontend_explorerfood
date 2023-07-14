@@ -1,8 +1,8 @@
-import styled  from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 
   position: fixed;
   top: 0;
@@ -15,40 +15,49 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-.topo-menu {
-  background-color: ${({ theme }) => theme.COLORS.DARK_700};
+  border: 1px solid blue;
 
-   padding: 5.6rem 2.8rem 2.4rem;
-   
-   width: 100%;
+  .topo-menu {
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-   display: flex;
-   align-items: center;
-}
-  
-@keyframes moveSide{
-  from {
-    width: 0;
-  }
-  to {
     width: 100%;
+    height: 11.4rem;
+
+    padding-left: 1.8rem;
+
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 400;
+    }
   }
-}`;
+
+  @keyframes moveSide {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+`;
 
 export const ContentMenu = styled.div`
   padding: 3.6rem 2.8rem 0;
 
-  background-color: ${({ theme}) => theme.COLORS.BACKGROUND};
-  
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
+
   display: flex;
   flex-direction: column;
 
-  .btn-actions{
+  .btn-actions {
     margin-top: 4.6rem;
 
     display: flex;
     flex-direction: column;
-    
+
     button {
       font-size: 2.4rem;
       font-weight: 300;
