@@ -4,8 +4,9 @@ import icon from '../../assets/icon_explorer.svg';
 
 import { ButtonText } from '../ButtonText';
 import { Sidebar } from '../Sidebar';
+import { Input } from '../Input';
 
-import { List, Receipt } from '@phosphor-icons/react';
+import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 import { useState } from 'react';
 
 export function Header() {
@@ -17,18 +18,30 @@ export function Header() {
 
   return (
     <Container>
-      <ButtonText icon={List} onClick={showSideBar} />
-      {sidebar && <Sidebar active={setSideBar} />}
+      <div className="sidebar-menu">
+        <ButtonText icon={List} onClick={showSideBar} />
+        {sidebar && <Sidebar active={setSideBar} />}
+      </div>
 
       <div className="logo">
         <img src={icon} alt="" />
         <h1>food explorer</h1>
       </div>
 
-      <div className="receipt">
+      <div className="search">
+        <Input
+          icon={MagnifyingGlass}
+          placeholder="Busque por pratos ou ingredientes"
+        />
+      </div>
+
+      <div className="view-receipt">
         <ButtonText icon={Receipt} />
+        <ButtonText icon={Receipt} title={`Pedidos (0)`} />
         <span>0</span>
       </div>
+
+      <ButtonText icon={SignOut} />
     </Container>
   );
 }

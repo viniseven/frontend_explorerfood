@@ -4,7 +4,9 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
 
   height: 11.4rem;
 
@@ -14,29 +16,89 @@ export const Container = styled.div`
     align-items: center;
 
     h1 {
-      font-size: clamp(2.1rem, 2.02rem + 0.4vw, 2.5rem);
+      font-size: clamp(1.5rem, 1.5rem + 0.4vw, 2rem);
     }
   }
 
-  .receipt {
+  .view-receipt {
     display: flex;
-    align-items: center;
+
+    :nth-child(2) {
+      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+      border-radius: 5px;
+
+      font-size: 1.4rem;
+
+      padding: 8px 12px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    span {
+      position: relative;
+      bottom: 2px;
+      right: 15px;
+
+      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+      border-radius: 100px;
+
+      width: 2rem;
+      height: 2rem;
+
+      text-align: center;
+
+      font-size: 1.4rem;
+    }
   }
 
-  span {
-    position: relative;
-    bottom: 6px;
-    right: 10px;
+  @media (max-width: 767px) {
+    .sidebar-menu {
+      display: block;
+    }
 
-    background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+    .search {
+      display: none;
+    }
 
-    border-radius: 100px;
+    .view-receipt {
+      :nth-child(2) {
+        display: none;
+      }
+    }
 
-    width: 2rem;
-    height: 2rem;
+    > button:last-child {
+      display: none;
+    }
+  }
 
-    text-align: center;
+  @media (min-width: 768px) {
+    .sidebar-menu {
+      display: none;
+    }
 
-    font-size: 1.4rem;
+    .search {
+      width: auto;
+    }
+
+    .view-receipt {
+      span {
+        display: none;
+      }
+
+      button:first-child {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .search {
+      width: 58rem;
+    }
   }
 `;
