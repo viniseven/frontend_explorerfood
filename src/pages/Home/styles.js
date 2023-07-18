@@ -8,10 +8,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  margin-top: 4.4rem;
-
-  padding: 0 1.6rem;
-
   .card-title {
     background: ${({ theme }) => theme.GRADIENT.GRAD_200};
 
@@ -27,52 +23,125 @@ export const Content = styled.div`
 
     position: relative;
 
+    margin: 4.4rem 1.6rem 6.2rem 3rem;
+
     img {
       width: 191px;
       height: 149px;
 
       position: absolute;
-      bottom: 1px;
+      bottom: 3px;
       left: -35px;
     }
+  }
 
-    .content-card-title {
-      width: 60%;
+  .content-card-title {
+    width: 60%;
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+
+      white-space: nowrap;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+      line-height: 16.8px;
+    }
+  }
+
+  main {
+    padding: 0 2.4rem;
+
+    .cards {
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      text-align: center;
+
+      position: relative;
+
+      padding: 2.4rem;
 
       h1 {
-        font-size: clamp(1.4rem, 0.4rem + 2.2vw, 4rem);
-        font-weight: 600;
-
-        white-space: nowrap;
+        font-size: 1.4rem;
       }
 
       p {
-        font-size: clamp(1.2rem, 0.4rem + 1vw, 1.6rem);
-        font-weight: 400;
-        line-height: 16.8px;
+        display: none;
+      }
+
+      span {
+        color: ${({ theme }) => theme.COLORS.CAKE};
+      }
+
+      .favorite {
+        position: absolute;
+        right: 0;
+        border: 1px solid red;
+      }
+
+      .btn-quantity {
+        display: flex;
+        gap: 1.4rem;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 4.4rem 1.6rem 2.5rem 3rem;
+
+    .card-title {
+      height: 16rem;
+
+      img {
+        width: 25rem;
+        height: 30rem;
+
+        bottom: -50px;
+        left: -20px;
+      }
+
+      .content-card-title {
+        h1 {
+          font-size: 3rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
       }
     }
   }
 
   @media (min-width: 1024px) {
-    margin-top: 16.4rem;
+    padding: 16.4rem 12.4rem 4.6rem;
 
     .card-title {
       height: 26rem;
 
-      position: relative;
-
       img {
-        width: 632px;
-        height: 406px;
+        width: 50%;
+        height: 40rem;
 
-        position: absolute;
-        left: -100px;
-        top: -80px;
+        left: -70px;
+        bottom: -50px;
       }
 
       .content-card-title {
-        margin-right: -80px;
+        h1 {
+          font-size: 4rem;
+        }
 
         p {
           font-size: 1.6rem;
