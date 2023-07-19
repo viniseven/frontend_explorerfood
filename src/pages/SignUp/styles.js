@@ -1,84 +1,78 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Container = styled.div` 
- width: 100%;
-
- display : flex;
- flex-direction: column;
- align-items: center;
-
- .brand{
-  margin-top: 15.8rem;
+export const Container = styled.div`
+  max-width: 1366px;
+  height: 100vh;
 
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
 
-  h1{
-    font-size: 3.7rem;
-    font-weight: 700;
-  }
- }
-
- @media(min-width: 800px){
-  flex-direction: row;
-  justify-content: space-around;
+  gap: 7.3rem;
 
   margin: 0 auto;
-  align-items: center;
-  height: 100vh;
- }
 
+  .brand {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 30rem;
+
+    margin: 0 2rem;
+
+    .brand {
+      width: 50%;
+    }
+  }
 `;
 
 export const Form = styled.form`
-  margin-top: 7.3rem;
-
-  padding: 0 4.7rem;
-
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 
-  width: 100%;
-  
   h1 {
     display: none;
+
+    font-size: 3.2rem;
+    font-weight: 500;
+    text-align: center;
   }
 
-  .input-wrapper{
-    label{
+  .input-wrapper {
+    label {
       font-weight: 400;
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
     }
+
+    input {
+      font-size: 1.6rem;
+    }
   }
 
-    button:last-child {
-     font-size: 1.4rem;
-     font-weight: 500;
-     line-height: 24px;
-     color: ${({ theme }) => theme.COLORS.WHITE};
+  button:last-child {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 24px;
+    color: ${({ theme }) => theme.COLORS.WHITE};
 
-     display: block;
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
+    padding: 6.4rem;
+
+    border-radius: 16px;
+
+    h1 {
+      display: block;
     }
-
-    @media(min-width: 800px){
-      background-color: ${({ theme }) => theme.COLORS.DARK_700};
-
-      padding: 6.4rem;
-
-      border-radius: 16px;
-
-      width: 47.6rem;
-      height: auto;
-
-      h1{
-        display: block;
-
-        font-size: 3.2rem;
-        font-weight: 500;
-        line-height: 140%;
-
-        text-align: center;
-      }
- }
+  }
 `;

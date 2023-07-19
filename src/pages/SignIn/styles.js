@@ -67,7 +67,9 @@ export const Form = styled.form`
 
   @media (min-width: 1024px) {
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
     padding: 6.4rem;
+
     border-radius: 16px;
 
     h1 {
