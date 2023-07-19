@@ -14,14 +14,16 @@ export default createGlobalStyle`
   }
 
   body{
+    width: 100vw;
+    height: 100vh;
+
     font-size: 1.6rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 
     margin: 0 auto;
-    height: 100vh;
-    max-width: 1920px;
 
-    border: 1px solid red;
+    display: flex;
+    justify-content: center;
   }
 
   a{

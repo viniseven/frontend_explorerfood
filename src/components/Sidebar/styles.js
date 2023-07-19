@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  min-height: 100%;
+  height: 100vh;
 
   position: fixed;
   top: 0;
@@ -15,7 +15,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  border: 1px solid blue;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 
   .topo-menu {
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
@@ -23,7 +23,7 @@ export const Container = styled.div`
     width: 100%;
     height: 11.4rem;
 
-    padding-left: 1.8rem;
+    padding-left: 4.5rem;
 
     display: flex;
     align-items: center;
@@ -46,8 +46,6 @@ export const Container = styled.div`
 
 export const ContentMenu = styled.div`
   padding: 3.6rem 2.8rem 0;
-
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 
   display: flex;
   flex-direction: column;

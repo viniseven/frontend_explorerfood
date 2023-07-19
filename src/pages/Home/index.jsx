@@ -118,7 +118,6 @@ export function Home() {
           </Section>
         </main>
       </Content>
-      <Footer />
     </Container>
   );
 }

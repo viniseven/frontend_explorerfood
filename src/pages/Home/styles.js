@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1920px;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 export const Content = styled.div`
+  margin: 0 auto;
+
+  max-width: 1122px;
+
   .card-title {
     background: ${({ theme }) => theme.GRADIENT.GRAD_200};
 
@@ -56,9 +59,16 @@ export const Content = styled.div`
   main {
     padding: 0 2.4rem;
 
+    .carousel {
+      width: 100%;
+
+      overflow-y: auto;
+    }
+
     .cards {
       display: flex;
       gap: 1.6rem;
+      width: 100%;
     }
 
     .card {
@@ -99,8 +109,6 @@ export const Content = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 4.4rem 1.6rem 2.5rem 3rem;
-
     .card-title {
       height: 16rem;
 
