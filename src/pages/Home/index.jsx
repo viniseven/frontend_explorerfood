@@ -15,6 +15,7 @@ import { Minus, Plus, HeartStraight } from '@phosphor-icons/react';
 
 import SaladaRavanello from '../../assets/SaladaRavanello.svg';
 import SpaguettiGambe from '../../assets/SpaguettiGambe.svg';
+import TorradasParma from '../../assets/TorradasParma.svg';
 
 export function Home() {
   const carousel = useRef();
@@ -47,8 +48,92 @@ export function Home() {
           </div>
         </div>
 
-        <Section title="Refeições"></Section>
+        <Section title="Refeições">
+          <motion.div
+            ref={carousel}
+            className="carousel"
+            whileTap={{ cursor: 'grabbing' }}
+          >
+            <motion.div
+              className="cards"
+              drag="x"
+              dragConstraints={{ right: 0, left: -width }}
+            >
+              <motion.div className="card">
+                <img
+                  src={SaladaRavanello}
+                  alt="Foto do prato de salada ravanello"
+                />
+
+                <h1>Salada Ravanello</h1>
+
+                <p>
+                  Rabanetes, folhas verdes e molho agridoce salpicados com
+                  gergelim
+                </p>
+
+                <span>R$ 49,97</span>
+
+                <div className="btn-dishe">
+                  <div>
+                    <ButtonText icon={Minus} />
+                    <span>01</span>
+                    <ButtonText icon={Plus} />
+                  </div>
+
+                  <Button title="incluir" />
+                </div>
+              </motion.div>
+
+              <motion.div className="card">
+                <img
+                  src={SpaguettiGambe}
+                  alt="Foto do prato de spaguetti gambe"
+                />
+
+                <h1>Spaguetti Gambe</h1>
+
+                <p>Massa fresca com camarões e pesto.</p>
+
+                <span>R$ 79,97</span>
+
+                <div className="btn-dishe">
+                  <div>
+                    <ButtonText icon={Minus} />
+                    <span>01</span>
+                    <ButtonText icon={Plus} />
+                  </div>
+
+                  <Button title="incluir" />
+                </div>
+              </motion.div>
+
+              <motion.div className="card">
+                <img src={TorradasParma} alt="Fotos de Torradas de Parma" />
+
+                <h1>Torradas de Parma</h1>
+
+                <p>
+                  Presunto de parma e rúcula em um pão com fermentação natural
+                </p>
+
+                <span>R$ 25,97</span>
+
+                <div className="btn-dishe">
+                  <div>
+                    <ButtonText icon={Minus} />
+                    <span>01</span>
+                    <ButtonText icon={Plus} />
+                  </div>
+
+                  <Button title="incluir" />
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </Section>
       </main>
+      <Footer />
     </Container>
   );
 }

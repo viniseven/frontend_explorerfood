@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  grid-area: footer;
-
   width: 100%;
 
   display: flex;
@@ -13,7 +11,7 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   .brand {
