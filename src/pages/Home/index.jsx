@@ -7,11 +7,18 @@ import { Section } from '../../components/Section';
 import { Footer } from '../../components/Footer';
 import { ButtonText } from '../../components/ButtonText';
 import { Button } from '../../components/Button';
+import { Carrousel } from '../../components/Carrousel';
 
 import cookie from '../../assets/cookie.svg';
 
 import { motion } from 'framer-motion';
-import { Minus, Plus, HeartStraight } from '@phosphor-icons/react';
+import {
+  Minus,
+  Plus,
+  HeartStraight,
+  CaretLeft,
+  CaretRight,
+} from '@phosphor-icons/react';
 
 import SaladaRavanello from '../../assets/SaladaRavanello.svg';
 import SpaguettiGambe from '../../assets/SpaguettiGambe.svg';
@@ -20,6 +27,8 @@ import TorradasParma from '../../assets/TorradasParma.svg';
 export function Home() {
   const carousel = useRef();
   const [width, setWidth] = useState(0);
+
+  function handleNextClick() {}
 
   const [favorites, setFavorites] = useState(false);
 
@@ -49,88 +58,11 @@ export function Home() {
         </div>
 
         <Section title="Refeições">
-          <motion.div
-            ref={carousel}
-            className="carousel"
-            whileTap={{ cursor: 'grabbing' }}
-          >
-            <motion.div
-              className="cards"
-              drag="x"
-              dragConstraints={{ right: 0, left: -width }}
-            >
-              <motion.div className="card">
-                <img
-                  src={SaladaRavanello}
-                  alt="Foto do prato de salada ravanello"
-                />
+          <Carrousel />
+        </Section>
 
-                <h1>Salada Ravanello</h1>
-
-                <p>
-                  Rabanetes, folhas verdes e molho agridoce salpicados com
-                  gergelim
-                </p>
-
-                <span>R$ 49,97</span>
-
-                <div className="btn-dishe">
-                  <div>
-                    <ButtonText icon={Minus} />
-                    <span>01</span>
-                    <ButtonText icon={Plus} />
-                  </div>
-
-                  <Button title="incluir" />
-                </div>
-              </motion.div>
-
-              <motion.div className="card">
-                <img
-                  src={SpaguettiGambe}
-                  alt="Foto do prato de spaguetti gambe"
-                />
-
-                <h1>Spaguetti Gambe</h1>
-
-                <p>Massa fresca com camarões e pesto.</p>
-
-                <span>R$ 79,97</span>
-
-                <div className="btn-dishe">
-                  <div>
-                    <ButtonText icon={Minus} />
-                    <span>01</span>
-                    <ButtonText icon={Plus} />
-                  </div>
-
-                  <Button title="incluir" />
-                </div>
-              </motion.div>
-
-              <motion.div className="card">
-                <img src={TorradasParma} alt="Fotos de Torradas de Parma" />
-
-                <h1>Torradas de Parma</h1>
-
-                <p>
-                  Presunto de parma e rúcula em um pão com fermentação natural
-                </p>
-
-                <span>R$ 25,97</span>
-
-                <div className="btn-dishe">
-                  <div>
-                    <ButtonText icon={Minus} />
-                    <span>01</span>
-                    <ButtonText icon={Plus} />
-                  </div>
-
-                  <Button title="incluir" />
-                </div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+        <Section title="Sobremesas">
+          <Carrousel />
         </Section>
       </main>
       <Footer />

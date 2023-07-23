@@ -1,71 +1,134 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
-
-width: 100%;
-max-width: 93vw;
-
-.carousel{
-
- overflow: hidden;
-
- cursor: grab;
-}
-
-.cards{
-  display: flex;
-  gap: 1.6rem;
-
-  > div{
-  padding: 2.4rem;
-
-  text-align: center;
-
-  background-color: ${({ theme }) => theme.COLORS.DARK_300};
-
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-}
-
-.card{
-  margin-top: 2.4rem;
+  width: 100%;
 
   position: relative;
-  
-  h1 {
-    font-size: 1.4rem;
-    font-weight: 500;
-  }
 
-  p{
-    display: none;
-  }
-
-  span{
-    color: ${({ theme }) => theme.COLORS.CAKE};
-  }
-
-  div {
+  .cards {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
+    flex-direction: row;
+    gap: 1.6rem;
 
-    svg {
-      width: 24px;
-      height: 24px;
+    margin-top: 2.4rem;
+
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+
+    position: relative;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+
+    position: relative;
+
+    padding: 2.4rem;
+
+    cursor: grabbing;
+
+    > button {
+      width: fit-content;
+
+      position: absolute;
+      right: 2.4rem;
+
+      svg {
+        width: 2.4rem;
+        height: auto;
+      }
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+
+      text-align: center;
+
+      img {
+        width: 8.8rem;
+        height: auto;
+      }
+
+      h1 {
+        font-size: clamp(1.4rem, 0.2786rem + 2.5445vw, 2.4rem);
+      }
+
+      p {
+        font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 22.4px;
+
+        word-wrap: break-word;
+
+        display: none;
+      }
+
+      > span {
+        font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+        font-size: clamp(1.6rem, 0.0458rem + 4.0712vw, 3.2rem);
+        font-weight: 400;
+        color: ${({ theme }) => theme.COLORS.CAKE};
+      }
+
+      .choose-dishe {
+        display: flex;
+        flex-direction: row;
+        gap: 1.6rem;
+
+        svg {
+          width: 2.4rem;
+          height: 2.4rem;
+
+          fill: ${({ theme }) => theme.COLORS.WHITE};
+        }
+      }
     }
   }
-}
 
-.favorite{
-  position: absolute;
-  right: 16px;
+  .buttons-carousel {
+    position: relative;
+    bottom: 18rem;
 
-  svg {
-     fill: red;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    display: none;
+
+    .btn-left,
+    .btn-right {
+      display: flex;
+      flex-direction: row;
+
+      svg {
+        width: 4rem;
+        height: auto;
+      }
+    }
+
+    .btn-left {
+      justify-content: flex-start;
+    }
+
+    .btn-right {
+      justify-content: flex-end;
+    }
   }
-}
-`
+
+  @media (min-width: 768px) {
+    .buttons-carousel {
+      display: flex;
+
+      .btn-right {
+      }
+    }
+  }
+`;

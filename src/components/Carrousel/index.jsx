@@ -1,77 +1,153 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import { Container } from './styles';
 import { ButtonText } from '../ButtonText';
 import { Button } from '../Button';
 
-import { motion } from 'framer-motion';
-import { Minus, Plus, HeartStraight } from '@phosphor-icons/react';
+import {
+  Minus,
+  Plus,
+  HeartStraight,
+  CaretLeft,
+  CaretRight,
+} from '@phosphor-icons/react';
 
 import SaladaRavanello from '../../assets/SaladaRavanello.svg';
-import SpaguettiGambe from '../../assets/SpaguettiGambe.svg';
 
 export function Carrousel() {
-  const carousel = useRef();
-  const [width, setWidth] = useState(0);
+  const carousel = useRef(null);
 
-  useEffect(() => {
-    setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
-  }, []);
+  function handleLeftClick(e) {
+    e.preventDefault();
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  }
+
+  function handleRightClick(e) {
+    e.preventDefault();
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  }
 
   return (
     <Container>
-      <motion.div
-        ref={carousel}
-        className="carousel"
-        whileTap={{ cursor: 'grabbing' }}
-      >
-        <motion.div
-          className="cards"
-          drag="x"
-          dragConstraints={{ right: 15, left: -width }}
-          initial={{ x: 300 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="card">
-            <div className="favorite">
-              <HeartStraight weight="fill" />
-            </div>
-            <img src={SaladaRavanello} alt="Imagem do prato" />
+      <div className="cards" ref={carousel}>
+        <div className="card">
+          <ButtonText icon={HeartStraight} />
+
+          <div className="card-content">
+            <img
+              src={SaladaRavanello}
+              alt="Foto do prato de Salada Ravanello"
+            />
+
             <h1>Salada Ravanello</h1>
+
             <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
             </p>
+
             <span>R$ 49,97</span>
-            <div>
+
+            <div className="choose-dishe">
               <ButtonText icon={Minus} />
-              01
+              <span>01</span>
               <ButtonText icon={Plus} />
             </div>
 
-            <Button title="Incluir" />
+            <Button title="incluir" />
           </div>
+        </div>
 
-          <div className="card">
-            <div className="favorite">
-              <ButtonText icon={HeartStraight} />
-            </div>
-            <img src={SpaguettiGambe} alt="Imagem do prato" />
-            <h1>Spaguetti Gambe</h1>
+        <div className="card">
+          <ButtonText icon={HeartStraight} />
+
+          <div className="card-content">
+            <img
+              src={SaladaRavanello}
+              alt="Foto do prato de Salada Ravanello"
+            />
+
+            <h1>Salada Ravanello</h1>
+
             <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
             </p>
-            <span>R$ 79,97</span>
-            <div>
+
+            <span>R$ 49,97</span>
+
+            <div className="choose-dishe">
               <ButtonText icon={Minus} />
-              01
+              <span>01</span>
               <ButtonText icon={Plus} />
             </div>
 
-            <Button title="Incluir" />
+            <Button title="incluir" />
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+
+        <div className="card">
+          <ButtonText icon={HeartStraight} />
+
+          <div className="card-content">
+            <img
+              src={SaladaRavanello}
+              alt="Foto do prato de Salada Ravanello"
+            />
+
+            <h1>Salada Ravanello</h1>
+
+            <p>
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
+            </p>
+
+            <span>R$ 49,97</span>
+
+            <div className="choose-dishe">
+              <ButtonText icon={Minus} />
+              <span>01</span>
+              <ButtonText icon={Plus} />
+            </div>
+
+            <Button title="incluir" />
+          </div>
+        </div>
+
+        <div className="card">
+          <ButtonText icon={HeartStraight} />
+
+          <div className="card-content">
+            <img
+              src={SaladaRavanello}
+              alt="Foto do prato de Salada Ravanello"
+            />
+
+            <h1>Salada Ravanello</h1>
+
+            <p>
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
+            </p>
+
+            <span>R$ 49,97</span>
+
+            <div className="choose-dishe">
+              <ButtonText icon={Minus} />
+              <span>01</span>
+              <ButtonText icon={Plus} />
+            </div>
+
+            <Button title="incluir" />
+          </div>
+        </div>
+      </div>
+
+      <div className="buttons-carousel">
+        <div className="btn-left">
+          <ButtonText icon={CaretLeft} onClick={handleLeftClick} />
+        </div>
+
+        <div className="btn-right">
+          <ButtonText icon={CaretRight} onClick={handleRightClick} />
+        </div>
+      </div>
     </Container>
   );
 }

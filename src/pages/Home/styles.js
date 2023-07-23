@@ -8,9 +8,11 @@ export const Container = styled.div`
   main {
     margin: 0 auto;
 
-    max-width: 1120px;
+    max-width: 100%;
 
     overflow-x: hidden;
+
+    border: 1px solid blue;
 
     .text-header {
       background: ${({ theme }) => theme.GRADIENT.GRAD_200};
@@ -58,6 +60,19 @@ export const Container = styled.div`
       margin-top: 2.3rem;
       overflow: hidden;
 
+      position: relative;
+
+      .controls-carousel {
+        display: flex;
+        justify-content: space-between;
+
+        position: absolute;
+        top: 40%;
+        z-index: 1;
+
+        width: 100%;
+      }
+
       .cards {
         display: flex;
         gap: 1.6rem;
@@ -65,13 +80,8 @@ export const Container = styled.div`
         .card {
           background-color: ${({ theme }) => theme.COLORS.DARK_300};
 
-          text-align: center;
-
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
-          align-items: center;
-
           padding: 2.4rem;
 
           cursor: grabbing;
@@ -80,38 +90,67 @@ export const Container = styled.div`
 
           max-width: 30.4rem;
 
-          img {
-            width: clamp(5.5rem, 0.2519rem + 22.3919vw, 17.6rem);
-            height: auto;
+          position: relative;
+
+          > button {
+            width: fit-content;
+
+            position: absolute;
+            right: 1.6rem;
+            top: 1.6rem;
+
+            svg {
+              width: 2.4rem;
+              height: 2.4rem;
+            }
           }
 
-          h1 {
-            font-size: clamp(1.4rem, 0.2786rem + 2.5445vw, 2.4rem);
-            font-weight: 500;
-            line-height: 24px;
-          }
+          .content-card {
+            text-align: center;
 
-          p {
-            display: none;
-
-            font-family: ${({ theme }) => theme.FONTS.ROBOTO};
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 22.4px;
-
-            word-wrap: break-word;
-          }
-
-          > span {
-            font-family: ${({ theme }) => theme.FONTS.ROBOTO};
-            font-size: clamp(1.6rem, 0.0458rem + 4.0712vw, 3.2rem);
-            font-weight: 400;
-            color: ${({ theme }) => theme.COLORS.CAKE};
-          }
-
-          .btn-dishe {
             display: flex;
             flex-direction: column;
+            gap: 1.2rem;
+            align-items: center;
+
+            margin-bottom: 1.2rem;
+
+            width: 21rem;
+
+            img {
+              width: clamp(5.5rem, 0.2519rem + 22.3919vw, 17.6rem);
+              height: auto;
+            }
+
+            h1 {
+              font-size: clamp(1.4rem, 0.2786rem + 2.5445vw, 2.4rem);
+              font-weight: 500;
+              line-height: 24px;
+            }
+
+            p {
+              display: none;
+
+              font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+              font-size: 1.4rem;
+              font-weight: 400;
+              line-height: 22.4px;
+
+              word-wrap: break-word;
+            }
+
+            > span {
+              font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+              font-size: clamp(1.6rem, 0.0458rem + 4.0712vw, 3.2rem);
+              font-weight: 400;
+              color: ${({ theme }) => theme.COLORS.CAKE};
+            }
+          }
+
+          .btn-quantity-dishe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 1.6rem;
 
             > div {
@@ -157,8 +196,10 @@ export const Container = styled.div`
         .cards {
           gap: 2.7rem;
           .card {
-            h1 {
-              font-weight: 700;
+            .content-card {
+              h1 {
+                font-weight: 700;
+              }
             }
           }
         }
@@ -182,8 +223,10 @@ export const Container = styled.div`
         .carousel {
           .cards {
             .card {
-              p {
-                display: block;
+              .content-card {
+                p {
+                  display: block;
+                }
               }
 
               .btn-dishe {
