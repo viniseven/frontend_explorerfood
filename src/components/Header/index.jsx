@@ -9,7 +9,7 @@ import { Input } from '../Input';
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 import { useState } from 'react';
 
-export function Header() {
+export function Header({ isAdmin }) {
   const [sidebar, setSideBar] = useState(false);
 
   function showSideBar() {
@@ -35,11 +35,13 @@ export function Header() {
         />
       </div>
 
-      <div className="view-receipt">
-        <ButtonText icon={Receipt} />
-        <ButtonText icon={Receipt} title={`Pedidos (0)`} />
-        <span>0</span>
-      </div>
+      {!isAdmin && (
+        <div className="view-receipt">
+          <ButtonText icon={Receipt} />
+          <ButtonText icon={Receipt} title={`Pedidos (0)`} />
+          <span>0</span>
+        </div>
+      )}
 
       <ButtonText icon={SignOut} />
     </Container>
