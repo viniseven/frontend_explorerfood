@@ -30,6 +30,8 @@ export const Container = styled.div`
 
     cursor: grabbing;
 
+    max-width: 30.4rem;
+
     > button {
       width: fit-content;
 
@@ -65,8 +67,6 @@ export const Container = styled.div`
         font-weight: 400;
         line-height: 22.4px;
 
-        word-wrap: break-word;
-
         display: none;
       }
 
@@ -79,14 +79,22 @@ export const Container = styled.div`
 
       .choose-dishe {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
         gap: 1.6rem;
 
-        svg {
-          width: 2.4rem;
-          height: 2.4rem;
+        width: 100%;
 
-          fill: ${({ theme }) => theme.COLORS.WHITE};
+        div {
+          display: flex;
+          gap: 1.4rem;
+
+          svg {
+            width: 2.4rem;
+            height: 2.4rem;
+
+            fill: ${({ theme }) => theme.COLORS.WHITE};
+          }
         }
       }
     }
@@ -124,11 +132,32 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
+    .cards {
+      .card {
+        .card-content {
+          img {
+            width: 17.8rem;
+          }
+
+          p {
+            display: block;
+          }
+
+          .choose-dishe {
+            flex-direction: row;
+            justify-content: center;
+
+            > button {
+              width: 9.2rem;
+              height: 4.8rem;
+            }
+          }
+        }
+      }
+    }
+
     .buttons-carousel {
       display: flex;
-
-      .btn-right {
-      }
     }
   }
 `;

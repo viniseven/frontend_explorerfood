@@ -12,8 +12,6 @@ export const Container = styled.div`
 
     overflow-x: hidden;
 
-    border: 1px solid blue;
-
     .text-header {
       background: ${({ theme }) => theme.GRADIENT.GRAD_200};
 
@@ -192,19 +190,6 @@ export const Container = styled.div`
         }
       }
 
-      .carousel {
-        .cards {
-          gap: 2.7rem;
-          .card {
-            .content-card {
-              h1 {
-                font-weight: 700;
-              }
-            }
-          }
-        }
-      }
-
       @media (min-width: 1024px) {
         .text-header {
           height: 26rem;
@@ -217,26 +202,6 @@ export const Container = styled.div`
 
             position: relative;
             bottom: 110px;
-          }
-        }
-
-        .carousel {
-          .cards {
-            .card {
-              .content-card {
-                p {
-                  display: block;
-                }
-              }
-
-              .btn-dishe {
-                flex-direction: row;
-
-                button {
-                  padding: 1.2rem 2.4rem;
-                }
-              }
-            }
           }
         }
       }

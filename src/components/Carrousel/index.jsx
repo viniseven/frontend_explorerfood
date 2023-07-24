@@ -48,12 +48,13 @@ export function Carrousel() {
             <span>R$ 49,97</span>
 
             <div className="choose-dishe">
-              <ButtonText icon={Minus} />
-              <span>01</span>
-              <ButtonText icon={Plus} />
+              <div>
+                <ButtonText icon={Minus} />
+                <span>01</span>
+                <ButtonText icon={Plus} />
+              </div>
+              <Button title="incluir" />
             </div>
-
-            <Button title="incluir" />
           </div>
         </div>
 
@@ -75,12 +76,13 @@ export function Carrousel() {
             <span>R$ 49,97</span>
 
             <div className="choose-dishe">
-              <ButtonText icon={Minus} />
-              <span>01</span>
-              <ButtonText icon={Plus} />
+              <div>
+                <ButtonText icon={Minus} />
+                <span>01</span>
+                <ButtonText icon={Plus} />
+              </div>
+              <Button title="incluir" />
             </div>
-
-            <Button title="incluir" />
           </div>
         </div>
 
@@ -102,12 +104,13 @@ export function Carrousel() {
             <span>R$ 49,97</span>
 
             <div className="choose-dishe">
-              <ButtonText icon={Minus} />
-              <span>01</span>
-              <ButtonText icon={Plus} />
+              <div>
+                <ButtonText icon={Minus} />
+                <span>01</span>
+                <ButtonText icon={Plus} />
+              </div>
+              <Button title="incluir" />
             </div>
-
-            <Button title="incluir" />
           </div>
         </div>
 
@@ -129,12 +132,13 @@ export function Carrousel() {
             <span>R$ 49,97</span>
 
             <div className="choose-dishe">
-              <ButtonText icon={Minus} />
-              <span>01</span>
-              <ButtonText icon={Plus} />
+              <div>
+                <ButtonText icon={Minus} />
+                <span>01</span>
+                <ButtonText icon={Plus} />
+              </div>
+              <Button title="incluir" />
             </div>
-
-            <Button title="incluir" />
           </div>
         </div>
       </div>
