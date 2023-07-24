@@ -1,75 +1,105 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
 
-.main{
-  padding: 3.6rem 5.6rem;
-  
-  text-align: center;
-  
-  img{
-    margin-top: 1.6rem;
+  display: grid;
 
-    min-width: 26rem;
-    min-height: 26rem;
-  }
+  main {
+    padding: 3.6rem 5.6rem;
 
-  h1{
-    font-size: 2.7rem;
-    font-weight: 500;
+    text-align: center;
 
-    margin-top: 1.6rem;
-  }
+    margin: 0 auto;
 
-  p{
-    margin-top: 2.4rem;
+    max-width: 100%;
 
-    font-weight: 400;
-  }
+    img {
+      margin-top: 1.6rem;
 
-  .tag-ingredients{
-    margin-top: 2.8rem;
+      min-width: 26rem;
+      min-height: 26rem;
+    }
 
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
+    h1 {
+      font-size: clamp(2.7rem, 0.9122rem + 3.3079vw, 4rem);
+      font-weight: 500;
 
-  .quantity-order{
-    display: flex;
-    gap: 1.6rem;
-    align-items: center;
-    justify-content: center;
+      margin-top: 1.6rem;
+    }
 
-    margin-top: 4.8rem;
+    p {
+      margin-top: 2.4rem;
 
-    div {
+      font-weight: 400;
+
+      font-size: clamp(1.6rem, 0.5229rem + 2.0356vw, 2.4rem);
+    }
+
+    .tag-ingredients {
+      margin-top: 2.8rem;
+
+      display: inline-grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .choose-dishe {
       display: flex;
-      gap: 15px;
+      gap: 1.6rem;
       align-items: center;
+      justify-content: center;
 
-      svg {
-        width: 2.7rem;
+      margin-top: 4.8rem;
+
+      div {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        svg {
+          width: 2.7rem;
+        }
+      }
+
+      > button {
+        font-size: 9.4px;
+
+        padding: 8px 16px;
+
+        border-radius: 5px;
+
+        background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+        svg {
+          margin-right: 5px;
+
+          width: 2.1rem;
+          height: 2.1rem;
+        }
       }
     }
 
-    > button {
-      font-size: 9.4px;
+    @media (min-width: 768px) {
+      .content-details-dishe {
+        display: flex;
+        gap: 4.7rem;
 
-      padding: 8px 16px;
+        > div {
+          text-align: start;
+        }
 
-      border-radius: 5px;
+        .choose-dishe {
+          justify-content: flex-start;
+        }
+      }
+    }
 
-      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-
-      svg {
-        margin-right: 5px;
-
-        width: 2.1rem;
-        height: 2.1rem;
+    @media (min-width: 1024px) {
+      .tag-ingredients {
+        display: flex;
+        gap: 1.2rem;
       }
     }
   }
-}
-`
+`;

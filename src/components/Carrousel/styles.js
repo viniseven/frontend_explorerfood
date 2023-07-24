@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  max-width: 1366px;
 
   position: relative;
 
@@ -17,6 +17,10 @@ export const Container = styled.div`
     scroll-behavior: smooth;
 
     position: relative;
+  }
+
+  .cards::-webkit-scrollbar {
+    display: none;
   }
 
   .card {
@@ -102,7 +106,7 @@ export const Container = styled.div`
 
   .buttons-carousel {
     position: relative;
-    bottom: 18rem;
+    bottom: 25rem;
 
     justify-content: space-between;
     align-items: center;

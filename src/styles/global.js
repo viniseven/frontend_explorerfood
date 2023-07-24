@@ -24,6 +24,8 @@ export default createGlobalStyle`
 
     display: flex;
     justify-content: center;
+
+    overflow-x: hidden;
   }
 
   a{

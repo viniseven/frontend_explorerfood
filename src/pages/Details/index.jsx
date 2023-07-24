@@ -16,34 +16,39 @@ export function Details() {
     <Container>
       <Header />
 
-      <div className="main">
+      <main>
         <ButtonText icon={CaretLeft} title="voltar" />
 
-        <img src={SaladaRavanello} alt="Imagem do prato" />
-        <h1>Salada Ravanello</h1>
-        <p>
-          Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-        </p>
+        <div className="content-details-dishe">
+          <img src={SaladaRavanello} alt="Imagem do prato" />
 
-        <div className="tag-ingredients">
-          <Tag title="alface" />
-          <Tag title="cebola" />
-          <Tag title="pão naan" />
-          <Tag title="pepino" />
-          <Tag title="rabanete" />
-          <Tag title="tomate" />
-        </div>
-
-        <div className="quantity-order">
           <div>
-            <ButtonText icon={Minus} />
-            01
-            <ButtonText icon={Plus} />
-          </div>
+            <h1>Salada Ravanello</h1>
+            <p>
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+            </p>
 
-          <ButtonText icon={Receipt} title={`pedir - R$`} />
+            <div className="tag-ingredients">
+              <Tag title="alface" />
+              <Tag title="cebola" />
+              <Tag title="pão naan" />
+              <Tag title="pepino" />
+              <Tag title="rabanete" />
+              <Tag title="tomate" />
+            </div>
+
+            <div className="choose-dishe">
+              <div>
+                <ButtonText icon={Minus} />
+                01
+                <ButtonText icon={Plus} />
+              </div>
+
+              <ButtonText icon={Receipt} title={`pedir - R$ 25,00`} />
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </Container>
