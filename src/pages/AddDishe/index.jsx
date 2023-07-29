@@ -3,10 +3,10 @@ import { Container, Form } from './styles';
 import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
 import { Button } from '../../components/Button';
-import { Input } from '../../components/Input';
 import { InputMarket } from '../../components/InputMarket';
+import { TextArea } from '../../components/TextArea';
 
-import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
+import { CaretLeft, UploadSimple, CaretDown } from '@phosphor-icons/react';
 
 export function AddDishe() {
   return (
@@ -19,25 +19,55 @@ export function AddDishe() {
         <Form>
           <h1>Novo prato</h1>
 
-          <div className="input-wrapper">
-            <label htmlFor="image">
-              Imagem do prato
-              <div className="btn-select-image">
-                <ButtonText icon={UploadSimple} title="Selecione Imagem" />
+          <fieldset>
+            <div className="input-wrapper">
+              <label htmlFor="image">
+                Imagem do prato
+                <div className="input-file">
+                  <input type="file" id="image" />
+
+                  <UploadSimple size={24} />
+                  <span>Selecione imagem</span>
+                </div>
+              </label>
+            </div>
+
+            <div className="input-wrapper">
+              <label htmlFor="name">Nome</label>
+              <input type="text" placeholder="Ex.: Salada Ceasar" id="name" />
+            </div>
+
+            <div className="input-wrapper">
+              <label htmlFor="category">Categoria</label>
+
+              <select name="category" id="category">
+                <option value="refeicao">Refeição</option>
+                <option value="sobremesa">Sobremesa</option>
+                <option value="bebida">Bebida</option>
+              </select>
+            </div>
+
+            <div className="input-wrapper">
+              <label htmlFor="ingredient">Ingredientes</label>
+              <div className="group-ingredients">
+                <InputMarket value="Pão naam" />
+                <InputMarket value="Novo marcador" isNew />
               </div>
-            </label>
+            </div>
 
-            <label htmlFor="">
-              Nome
-              <Input id="name" placeholder="Ex.: Salada Ceasar" />
-            </label>
+            <div className="input-wrapper">
+              <label htmlFor="price">Preço</label>
+              <input type="text" placeholder="R$ 00,00" id="price" />
+            </div>
 
-            <label htmlFor="category">Categoria</label>
-            <select name="category" id="category">
-              <option value="Refeicao">Refeição</option>
-              <option value="Refeicao">Sobremesas</option>
-              <option value="Refeicao">Bebidas</option>
-            </select>
+            <div className="input-wrapper">
+              <label htmlFor="description">Descrição</label>
+              <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" />
+            </div>
+          </fieldset>
+
+          <div className="buttom-footer-form">
+            <Button title="Salvar alterações" />
           </div>
         </Form>
       </main>

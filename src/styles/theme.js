@@ -2,7 +2,7 @@ export default {
   COLORS: {
     BACKGROUND: '#000A0F',
     DARK_900: '#0D1D25',
-    DARK_800: '#0D161D',
+    DARK_800: '#0D161B',
     DARK_700: '#001119',
     DARK_600: '#192227',
     DARK_300: '#00070A',
@@ -11,6 +11,7 @@ export default {
     LIGHT_500: '#7C7C8A',
     LIGHT_400: '#C4C4CC',
     LIGHT_300: '#E1E1E6',
+    TOMATO_400: '#AB4D55',
     TOMATO_100: '#750310',
     CAKE: '#82F3FF',
     WHITE: '#FFFFFF',

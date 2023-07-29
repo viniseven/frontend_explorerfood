@@ -4,28 +4,17 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  background: ${({ theme, isNew }) =>
-    isNew ? 'transparent' : theme.COLORS.LIGHT_600};
+  height: 4.8rem;
 
-  color: ${({ theme }) => theme.COLORS.LIGHT};
+  padding: 1rem 1.6rem;
+
+  background-color: ${({ theme, isNew }) =>
+    isNew ? 'transparent' : theme.COLORS.LIGHT_600};
 
   border: ${({ theme, isNew }) =>
     isNew ? `2px dashed ${theme.COLORS.LIGHT_500}` : 'none'};
 
-  > input {
-    background: transparent;
-
-    color: ${({ theme }) => theme.COLORS.WHITE};
-
-    padding: 1rem 1.6rem;
-
-    border: none;
-
-    pointer-events: ${({ isNew }) => (isNew ? 'auto' : 'none')};
-    :focus {
-      outline: 0;
-    }
-  }
+  border-radius: 8px;
 
   > button {
     border: none;
@@ -34,7 +23,14 @@ export const Container = styled.div`
 
     svg {
       width: 8px;
-      height: 8px;
+      height: auto;
     }
+  }
+
+  > input {
+    background: transparent !important;
+
+    width: auto;
+    height: 3.2rem;
   }
 `;

@@ -6,55 +6,125 @@ export const Container = styled.div`
   display: grid;
 
   main {
-    max-width: 1366px;
+    padding: 1rem 3.2rem 5.3rem;
 
-    padding: 1rem 3.2rem 0;
+    > button {
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 23.16px;
+
+      svg {
+        width: 2.2rem;
+        height: auto;
+      }
+    }
   }
 `;
 
 export const Form = styled.form`
   width: 100%;
-  height: auto;
+
+  margin-top: 2.4rem;
 
   h1 {
-    margin: 2.4rem 0;
-
     font-size: 3.2rem;
     font-weight: 500;
     line-height: 44.8px;
   }
 
-  label,
-  input {
-    font-family: ${({ theme }) => theme.FONTS.ROBOTO};
-  }
+  fieldset {
+    margin-top: 2.1rem;
 
-  .input-wrapper {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
-    gap: 3.6rem;
+    gap: 2.4rem;
 
-    .btn-select-image {
-      margin-top: 1.6rem;
+    border: none;
 
-      border-radius: 8px;
+    .input-wrapper {
+      label,
+      input {
+        font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+      }
 
-      background: ${({ theme }) => theme.COLORS.DARK_800};
-
-      padding: 1.2rem 3.2rem;
-
-      button {
-        font-size: 1.4rem;
+      label {
+        display: inline-block;
 
         width: 100%;
 
-        svg {
-          width: 2.4rem;
-          height: auto;
+        margin-bottom: 1.6rem;
+      }
 
-          margin-right: 8px;
+      input {
+        width: 100%;
+
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+
+        border: none;
+
+        border-radius: 8px;
+
+        padding: 1.6rem 1.4rem;
+      }
+
+      .input-file {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+
+        padding: 1.2rem 3.2rem;
+
+        border-radius: 8px;
+
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+
+        margin-top: 1.6rem;
+
+        input {
+          opacity: 0;
+
+          cursor: pointer;
+
+          display: none;
+        }
+
+        span {
+          margin-left: 8px;
         }
       }
+
+      select {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+
+        border: none;
+
+        border-radius: 8px;
+
+        padding: 1.6rem;
+
+        width: 100%;
+      }
+
+      .group-ingredients {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+
+        display: flex;
+        gap: 1.6rem;
+
+        width: 100%;
+
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .buttom-footer-form {
+    margin-top: 2.4rem;
+    button {
+      background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
     }
   }
 `;
