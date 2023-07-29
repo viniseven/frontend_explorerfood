@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import { Container } from './styles';
 import { ButtonText } from '../ButtonText';
@@ -14,9 +14,32 @@ import {
 } from '@phosphor-icons/react';
 
 import SaladaRavanello from '../../assets/SaladaRavanello.svg';
+import theme from '../../styles/theme';
 
 export function Carrousel({ isAdmin }) {
+  const [quantity, setQuantity] = useState(0);
+  const [favorites, setFavorites] = useState([]);
+
   const carousel = useRef(null);
+
+  function handleAddFavorites(dishe) {
+    setFavorites([...favorites, dishe]);
+
+    const btnFav = document.getElementById('btn-favorite');
+    const iconFav = btnFav.querySelector('svg');
+
+    iconFav.setAttribute('fill', theme.COLORS.TOMATO_100);
+  }
+
+  function handleAddDishe() {
+    setQuantity(quantity + 1);
+  }
+
+  function handleRemoveDishe() {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  }
 
   function handleLeftClick(e) {
     e.preventDefault();
@@ -32,8 +55,12 @@ export function Carrousel({ isAdmin }) {
     <Container>
       <div className="cards" ref={carousel}>
         <div className="card">
-          {isAdmin ? (
-            <ButtonText icon={HeartStraight} />
+          {!isAdmin ? (
+            <ButtonText
+              icon={HeartStraight}
+              onClick={handleAddFavorites}
+              id="btn-favorite"
+            />
           ) : (
             <ButtonText icon={PencilSimple} />
           )}
@@ -52,12 +79,12 @@ export function Carrousel({ isAdmin }) {
 
             <span>R$ 49,97</span>
 
-            {isAdmin ? (
+            {!isAdmin ? (
               <div className="choose-dishe">
                 <div>
-                  <ButtonText icon={Minus} />
-                  <span>01</span>
-                  <ButtonText icon={Plus} />
+                  <ButtonText icon={Minus} onClick={handleRemoveDishe} />
+                  <span>{quantity}</span>
+                  <ButtonText icon={Plus} onClick={handleAddDishe} />
                 </div>
                 <Button title="incluir" />
               </div>
