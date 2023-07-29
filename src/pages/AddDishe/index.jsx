@@ -21,15 +21,12 @@ export function AddDishe() {
 
           <fieldset>
             <div className="input-wrapper">
-              <label htmlFor="image">
-                Imagem do prato
-                <div className="input-file">
-                  <input type="file" id="image" />
-
-                  <UploadSimple size={24} />
-                  <span>Selecione imagem</span>
-                </div>
-              </label>
+              <label htmlFor="image">Imagem do prato</label>
+              <div className="input-file">
+                <input type="file" id="image" />
+                <UploadSimple size={24} />
+                <span>Selecione imagem</span>
+              </div>
             </div>
 
             <div className="input-wrapper">
@@ -46,7 +43,9 @@ export function AddDishe() {
                 <option value="bebida">Bebida</option>
               </select>
             </div>
+          </fieldset>
 
+          <fieldset>
             <div className="input-wrapper">
               <label htmlFor="ingredient">Ingredientes</label>
               <div className="group-ingredients">
@@ -59,12 +58,12 @@ export function AddDishe() {
               <label htmlFor="price">Preço</label>
               <input type="text" placeholder="R$ 00,00" id="price" />
             </div>
-
-            <div className="input-wrapper">
-              <label htmlFor="description">Descrição</label>
-              <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" />
-            </div>
           </fieldset>
+
+          <div className="input-wrapper">
+            <label htmlFor="description">Descrição</label>
+            <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" />
+          </div>
 
           <div className="buttom-footer-form">
             <Button title="Salvar alterações" />

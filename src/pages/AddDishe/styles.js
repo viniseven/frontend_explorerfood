@@ -6,7 +6,16 @@ export const Container = styled.div`
   display: grid;
 
   main {
+    position: relative;
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
     padding: 1rem 3.2rem 5.3rem;
+
+    max-width: 1366px;
 
     > button {
       font-size: 1.6rem;
@@ -26,36 +35,37 @@ export const Form = styled.form`
 
   margin-top: 2.4rem;
 
+  display: flex;
+  flex-direction: column;
+
+  border: none;
+
+  position: relative;
+
   h1 {
     font-size: 3.2rem;
     font-weight: 500;
     line-height: 44.8px;
   }
 
-  fieldset {
-    margin-top: 2.1rem;
+  label,
+  input {
+    font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+  }
+
+  label {
+    display: inline-block;
 
     width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
+    margin-bottom: 1.6rem;
+  }
 
+  fieldset {
     border: none;
 
     .input-wrapper {
-      label,
-      input {
-        font-family: ${({ theme }) => theme.FONTS.ROBOTO};
-      }
-
-      label {
-        display: inline-block;
-
-        width: 100%;
-
-        margin-bottom: 1.6rem;
-      }
+      margin-bottom: 2.4rem;
 
       input {
         width: 100%;
@@ -80,8 +90,6 @@ export const Form = styled.form`
         align-items: center;
 
         width: 100%;
-
-        margin-top: 1.6rem;
 
         input {
           opacity: 0;
@@ -125,6 +133,34 @@ export const Form = styled.form`
     margin-top: 2.4rem;
     button {
       background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+
+      padding: 1.2rem 2.4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    fieldset:nth-child(n + 1) {
+      display: flex;
+      gap: 3.2rem;
+
+      .input-wrapper {
+        width: 100%;
+      }
+    }
+    fieldset:nth-child(n + 3) {
+      .input-wrapper:last-child {
+        width: 30%;
+      }
+    }
+
+    .buttom-footer-form {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        width: 17.2rem;
+        height: auto;
+      }
     }
   }
 `;
