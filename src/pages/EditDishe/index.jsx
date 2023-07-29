@@ -8,7 +8,7 @@ import { TextArea } from '../../components/TextArea';
 
 import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
 
-export function AddDishe() {
+export function EditDishe() {
   return (
     <Container>
       <Header isAdmin={true} />
@@ -17,7 +17,7 @@ export function AddDishe() {
         <ButtonText icon={CaretLeft} title="voltar" />
 
         <Form>
-          <h1>Novo prato</h1>
+          <h1>Editar prato</h1>
 
           <fieldset>
             <div className="input-wrapper">
