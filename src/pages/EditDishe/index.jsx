@@ -66,6 +66,7 @@ export function EditDishe() {
           </div>
 
           <div className="buttom-footer-form">
+            <Button title="Excluir prato" />
             <Button title="Salvar alterações" />
           </div>
         </Form>

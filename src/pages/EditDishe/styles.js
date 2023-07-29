@@ -139,7 +139,15 @@ export const Form = styled.form`
 
   .buttom-footer-form {
     margin-top: 2.4rem;
-    button {
+
+    display: flex;
+    gap: 3.2rem;
+
+    button:first-child {
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+    }
+
+    button:last-child {
       background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
 
       padding: 1.2rem 2.4rem;
