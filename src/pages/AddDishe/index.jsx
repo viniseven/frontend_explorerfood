@@ -50,7 +50,7 @@ export function AddDishe() {
               <label htmlFor="ingredient">Ingredientes</label>
               <div className="group-ingredients">
                 <InputMarket value="Pão naam" />
-                <InputMarket value="Novo marcador" isNew />
+                <InputMarket placeholder="Novo marcador" isNew />
               </div>
             </div>
 

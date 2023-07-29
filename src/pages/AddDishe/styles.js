@@ -53,6 +53,11 @@ export const Form = styled.form`
     font-family: ${({ theme }) => theme.FONTS.ROBOTO};
   }
 
+  input,
+  textarea {
+    font-size: 1.6rem;
+  }
+
   label {
     display: inline-block;
 
@@ -114,6 +119,7 @@ export const Form = styled.form`
         padding: 1.6rem;
 
         width: 100%;
+        height: 4.8rem;
       }
 
       .group-ingredients {
