@@ -10,11 +10,12 @@ import {
   HeartStraight,
   CaretLeft,
   CaretRight,
+  PencilSimple,
 } from '@phosphor-icons/react';
 
 import SaladaRavanello from '../../assets/SaladaRavanello.svg';
 
-export function Carrousel() {
+export function Carrousel({ isAdmin }) {
   const carousel = useRef(null);
 
   function handleLeftClick(e) {
@@ -31,7 +32,11 @@ export function Carrousel() {
     <Container>
       <div className="cards" ref={carousel}>
         <div className="card">
-          <ButtonText icon={HeartStraight} />
+          {isAdmin ? (
+            <ButtonText icon={HeartStraight} />
+          ) : (
+            <ButtonText icon={PencilSimple} />
+          )}
 
           <div className="card-content">
             <img
@@ -47,154 +52,16 @@ export function Carrousel() {
 
             <span>R$ 49,97</span>
 
-            <div className="choose-dishe">
-              <div>
-                <ButtonText icon={Minus} />
-                <span>01</span>
-                <ButtonText icon={Plus} />
+            {isAdmin ? (
+              <div className="choose-dishe">
+                <div>
+                  <ButtonText icon={Minus} />
+                  <span>01</span>
+                  <ButtonText icon={Plus} />
+                </div>
+                <Button title="incluir" />
               </div>
-              <Button title="incluir" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <ButtonText icon={HeartStraight} />
-
-          <div className="card-content">
-            <img
-              src={SaladaRavanello}
-              alt="Foto do prato de Salada Ravanello"
-            />
-
-            <h1>Salada Ravanello</h1>
-
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
-            </p>
-
-            <span>R$ 49,97</span>
-
-            <div className="choose-dishe">
-              <div>
-                <ButtonText icon={Minus} />
-                <span>01</span>
-                <ButtonText icon={Plus} />
-              </div>
-              <Button title="incluir" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <ButtonText icon={HeartStraight} />
-
-          <div className="card-content">
-            <img
-              src={SaladaRavanello}
-              alt="Foto do prato de Salada Ravanello"
-            />
-
-            <h1>Salada Ravanello</h1>
-
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
-            </p>
-
-            <span>R$ 49,97</span>
-
-            <div className="choose-dishe">
-              <div>
-                <ButtonText icon={Minus} />
-                <span>01</span>
-                <ButtonText icon={Plus} />
-              </div>
-              <Button title="incluir" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <ButtonText icon={HeartStraight} />
-
-          <div className="card-content">
-            <img
-              src={SaladaRavanello}
-              alt="Foto do prato de Salada Ravanello"
-            />
-
-            <h1>Salada Ravanello</h1>
-
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
-            </p>
-
-            <span>R$ 49,97</span>
-
-            <div className="choose-dishe">
-              <div>
-                <ButtonText icon={Minus} />
-                <span>01</span>
-                <ButtonText icon={Plus} />
-              </div>
-              <Button title="incluir" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <ButtonText icon={HeartStraight} />
-
-          <div className="card-content">
-            <img
-              src={SaladaRavanello}
-              alt="Foto do prato de Salada Ravanello"
-            />
-
-            <h1>Salada Ravanello</h1>
-
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
-            </p>
-
-            <span>R$ 49,97</span>
-
-            <div className="choose-dishe">
-              <div>
-                <ButtonText icon={Minus} />
-                <span>01</span>
-                <ButtonText icon={Plus} />
-              </div>
-              <Button title="incluir" />
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <ButtonText icon={HeartStraight} />
-
-          <div className="card-content">
-            <img
-              src={SaladaRavanello}
-              alt="Foto do prato de Salada Ravanello"
-            />
-
-            <h1>Salada Ravanello</h1>
-
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim
-            </p>
-
-            <span>R$ 49,97</span>
-
-            <div className="choose-dishe">
-              <div>
-                <ButtonText icon={Minus} />
-                <span>01</span>
-                <ButtonText icon={Plus} />
-              </div>
-              <Button title="incluir" />
-            </div>
+            ) : null}
           </div>
         </div>
       </div>

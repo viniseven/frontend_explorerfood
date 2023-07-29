@@ -5,13 +5,13 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from './styles/global.js';
 import theme from './styles/theme.js';
-import { EditDishe } from './pages/EditDishe/index.jsx';
+import { Details } from './pages/Details/index.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <EditDishe />
+      <Details />
     </ThemeProvider>
   </React.StrictMode>
 );

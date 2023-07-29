@@ -26,6 +26,7 @@ export function Header({ isAdmin }) {
       <div className="logo">
         <img src={icon} alt="" />
         <h1>food explorer</h1>
+        <span>admin</span>
       </div>
 
       <div className="search">
@@ -35,7 +36,7 @@ export function Header({ isAdmin }) {
         />
       </div>
 
-      {!isAdmin && (
+      {isAdmin && (
         <div className="view-receipt">
           <ButtonText icon={Receipt} />
           <ButtonText icon={Receipt} title={`Pedidos (0)`} />

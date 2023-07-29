@@ -37,45 +37,51 @@ export const Container = styled.div`
     }
 
     .tag-ingredients {
-      margin-top: 2.8rem;
+      margin: 2.8rem 0 4.8rem;
 
       display: inline-grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    .choose-dishe {
-      display: flex;
-      gap: 1.6rem;
-      align-items: center;
-      justify-content: center;
-
-      margin-top: 4.8rem;
-
-      div {
+    .controls-dishe {
+      .choose-dishe {
         display: flex;
-        gap: 15px;
+        gap: 1.6rem;
         align-items: center;
+        justify-content: center;
 
-        svg {
-          width: 2.7rem;
+        div {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+
+          svg {
+            width: 2.7rem;
+          }
+        }
+
+        > button {
+          font-size: 9.4px;
+
+          padding: 8px 16px;
+
+          border-radius: 5px;
+
+          background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+          svg {
+            margin-right: 5px;
+
+            width: 2.1rem;
+            height: 2.1rem;
+          }
         }
       }
 
-      > button {
-        font-size: 9.4px;
-
-        padding: 8px 16px;
-
-        border-radius: 5px;
-
-        background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-
-        svg {
-          margin-right: 5px;
-
-          width: 2.1rem;
-          height: 2.1rem;
+      .edit-dishe {
+        button {
+          max-width: 32.2rem;
         }
       }
     }
@@ -89,8 +95,10 @@ export const Container = styled.div`
           text-align: start;
         }
 
-        .choose-dishe {
-          justify-content: flex-start;
+        .controls-dishe {
+          .choose-dishe {
+            justify-content: flex-start;
+          }
         }
       }
     }

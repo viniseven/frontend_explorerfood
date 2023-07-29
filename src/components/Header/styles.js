@@ -18,6 +18,13 @@ export const Container = styled.div`
     h1 {
       font-size: clamp(1.5rem, 1.5rem + 0.4vw, 2rem);
     }
+
+    span {
+      font-size: 1.2rem;
+      font-weight: 400;
+
+      color: ${({ theme }) => theme.COLORS.CAKE};
+    }
   }
 
   .view-receipt {
@@ -92,6 +99,16 @@ export const Container = styled.div`
 
       button:first-child {
         display: none;
+      }
+    }
+
+    .logo {
+      position: relative;
+
+      span {
+        position: absolute;
+        right: 0;
+        top: 25px;
       }
     }
   }
