@@ -42,9 +42,11 @@ export const Container = styled.div`
       position: absolute;
       right: 2.4rem;
 
+      background: none;
+      border: none;
+
       svg {
-        width: 2.4rem;
-        height: auto;
+        stroke-width: 1.5;
       }
     }
 

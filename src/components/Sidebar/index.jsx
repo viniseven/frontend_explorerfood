@@ -1,12 +1,10 @@
 import { Container, ContentMenu } from './styles';
 
-import { X } from '@phosphor-icons/react';
-
 import { Input } from '../Input';
 import { ButtonText } from '../ButtonText';
 import { Footer } from '../Footer';
 
-import { MagnifyingGlass } from '@phosphor-icons/react';
+import { MagnifyingGlass, X } from '@phosphor-icons/react';
 
 export function Sidebar({ active, isAdmin }) {
   const closeSidebar = () => {
