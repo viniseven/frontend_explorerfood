@@ -28,10 +28,6 @@ export function Home() {
         <Section title="Refeições">
           <Carrousel />
         </Section>
-
-        <Section title="Sobremesas">
-          <Carrousel />
-        </Section>
       </main>
       <Footer />
     </Container>
