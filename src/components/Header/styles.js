@@ -63,6 +63,10 @@ export const Container = styled.div`
     }
   }
 
+  > button {
+    max-width: 21.6rem;
+  }
+
   @media (max-width: 767px) {
     .sidebar-menu {
       display: block;

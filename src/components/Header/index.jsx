@@ -5,6 +5,7 @@ import icon from '../../assets/icon_explorer.svg';
 import { ButtonText } from '../ButtonText';
 import { Sidebar } from '../Sidebar';
 import { Input } from '../Input';
+import { Button } from '../Button';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 import { useState } from 'react';
@@ -36,12 +37,14 @@ export function Header({ isAdmin }) {
         />
       </div>
 
-      {isAdmin && (
+      {isAdmin ? (
         <div className="view-receipt">
           <ButtonText icon={Receipt} />
           <ButtonText icon={Receipt} title={`Pedidos (0)`} />
           <span>0</span>
         </div>
+      ) : (
+        <Button title="Novo prato" />
       )}
 
       <ButtonText icon={SignOut} />
