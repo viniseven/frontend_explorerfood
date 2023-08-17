@@ -117,6 +117,12 @@ export const Container = styled.div`
     }
   }
 
+  @media (max-width: 1024px) {
+    #new-dishe {
+      display: none;
+    }
+  }
+
   @media (min-width: 1440px) {
     .search {
       width: 58rem;

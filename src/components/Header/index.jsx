@@ -44,7 +44,7 @@ export function Header({ isAdmin }) {
           <span>0</span>
         </div>
       ) : (
-        <Button title="Novo prato" />
+        <Button title="Novo prato" id="new-dishe" />
       )}
 
       <ButtonText icon={SignOut} />
