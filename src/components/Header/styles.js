@@ -27,105 +27,58 @@ export const Container = styled.div`
     }
   }
 
-  .view-receipt {
+  #new-dishe {
+    width: 21.6rem;
+  }
+
+  #btn-receipt {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-    :nth-child(2) {
-      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-
-      border-radius: 5px;
-
-      font-size: 1.4rem;
-
-      padding: 8px 12px;
-
-      svg {
-        width: 32px;
-        height: 32px;
-      }
-    }
-
-    span {
-      position: relative;
-      bottom: 2px;
-      right: 15px;
-
-      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-
-      border-radius: 100px;
-
-      width: 2rem;
-      height: 2rem;
-
-      text-align: center;
-
-      font-size: 1.4rem;
-    }
+    max-width: 21.6rem;
   }
 
   > button {
     max-width: 21.6rem;
   }
 
-  @media (max-width: 767px) {
-    .sidebar-menu {
-      display: block;
-    }
+  .logo {
+    position: relative;
 
+    span {
+      position: absolute;
+      right: 0;
+      top: 25px;
+    }
+  }
+
+  @media (max-width: 1023px) {
     .search {
       display: none;
     }
 
-    .view-receipt {
-      :nth-child(2) {
-        display: none;
-      }
-    }
-
-    > button:last-child {
-      display: none;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .sidebar-menu {
-      display: none;
-    }
-
-    .search {
-      width: auto;
-    }
-
-    .view-receipt {
-      span {
-        display: none;
-      }
-
-      button:first-child {
-        display: none;
-      }
-    }
-
-    .logo {
-      position: relative;
-
-      span {
-        position: absolute;
-        right: 0;
-        top: 25px;
-      }
-    }
-  }
-
-  @media (max-width: 1024px) {
     #new-dishe {
       display: none;
     }
+
+    #btn-receipt {
+      display: none;
+    }
+
+    #logout {
+      display: none;
+    }
   }
 
-  @media (min-width: 1440px) {
-    .search {
-      width: 58rem;
+  @media (min-width: 1024px) {
+    .sidebar-menu {
+      display: none;
+    }
+
+    #btn-icon-receipt {
+      display: none;
     }
   }
 `;

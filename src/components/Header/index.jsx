@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Container } from './styles';
 
 import icon from '../../assets/icon_explorer.svg';
@@ -8,9 +11,10 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
-import { useState } from 'react';
 
-export function Header({ isAdmin }) {
+export function Header({ isAdmin = true }) {
+  let value = 0;
+
   const [sidebar, setSideBar] = useState(false);
 
   function showSideBar() {
@@ -27,7 +31,8 @@ export function Header({ isAdmin }) {
       <div className="logo">
         <img src={icon} alt="" />
         <h1>food explorer</h1>
-        <span>admin</span>
+
+        {isAdmin ? <span>admin</span> : <></>}
       </div>
 
       <div className="search">
@@ -38,16 +43,21 @@ export function Header({ isAdmin }) {
       </div>
 
       {isAdmin ? (
-        <div className="view-receipt">
-          <ButtonText icon={Receipt} />
-          <ButtonText icon={Receipt} title={`Pedidos (0)`} />
-          <span>0</span>
-        </div>
+        <Link to="/new">
+          <Button title="Novo prato" id="new-dishe" />
+        </Link>
       ) : (
-        <Button title="Novo prato" id="new-dishe" />
+        <>
+          <ButtonText icon={Receipt} id="btn-icon-receipt" />
+          <Button
+            icon={Receipt}
+            title={`Pedidos (${value})`}
+            id="btn-receipt"
+          />
+        </>
       )}
 
-      <ButtonText icon={SignOut} />
+      <ButtonText icon={SignOut} id="logout" />
     </Container>
   );
 }

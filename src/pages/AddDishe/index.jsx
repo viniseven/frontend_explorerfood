@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Container, Form } from './styles';
 
 import { Header } from '../../components/Header';
@@ -11,10 +13,12 @@ import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
 export function AddDishe() {
   return (
     <Container>
-      <Header isAdmin={true} />
+      <Header />
 
       <main>
-        <ButtonText icon={CaretLeft} title="voltar" />
+        <Link to="/">
+          <ButtonText icon={CaretLeft} title="voltar" />
+        </Link>
 
         <Form>
           <h1>Novo prato</h1>
@@ -49,7 +53,6 @@ export function AddDishe() {
             <div className="input-wrapper">
               <label htmlFor="ingredient">Ingredientes</label>
               <div className="group-ingredients">
-                <InputMarket />
                 <InputMarket isNew />
               </div>
             </div>
