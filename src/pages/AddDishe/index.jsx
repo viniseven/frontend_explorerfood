@@ -49,8 +49,8 @@ export function AddDishe() {
             <div className="input-wrapper">
               <label htmlFor="ingredient">Ingredientes</label>
               <div className="group-ingredients">
-                <InputMarket value="Pão naam" />
-                <InputMarket placeholder="Novo marcador" isNew />
+                <InputMarket />
+                <InputMarket isNew />
               </div>
             </div>
 

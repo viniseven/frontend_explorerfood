@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Container, Form } from './styles';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -28,7 +30,9 @@ export function SignIn() {
 
         <Button title="Entrar" />
 
-        <ButtonText title="Criar uma conta" />
+        <Link to="/signup">
+          <ButtonText title="Criar uma conta" />
+        </Link>
       </Form>
     </Container>
   );

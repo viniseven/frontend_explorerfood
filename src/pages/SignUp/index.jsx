@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { Container, Form } from './styles';
 import { Input } from '../../components/Input';
@@ -14,6 +15,8 @@ export function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   function handleSignUp() {
     if (!name || !email || !password) {
       return alert('Por favor, preencha todos os campos');
@@ -26,6 +29,8 @@ export function SignUp() {
       .post('/users', { name, email, password })
       .then(() => {
         alert('Usuário cadastrado com sucesso!');
+
+        navigate('/');
       })
       .catch((error) => {
         if (error.response) {
@@ -75,7 +80,9 @@ export function SignUp() {
 
         <Button title="Criar conta" onClick={handleSignUp} />
 
-        <ButtonText title="Já tenho uma conta" />
+        <Link to="/">
+          <ButtonText title="Já tenho uma conta" />
+        </Link>
       </Form>
     </Container>
   );

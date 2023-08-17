@@ -34,6 +34,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  align-items: center;
 
   width: 100%;
 
