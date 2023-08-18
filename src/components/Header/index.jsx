@@ -12,7 +12,7 @@ import { Button } from '../Button';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 
-export function Header({ isAdmin = true }) {
+export function Header({ admin }) {
   let value = 0;
 
   const [sidebar, setSideBar] = useState(false);
@@ -25,14 +25,14 @@ export function Header({ isAdmin = true }) {
     <Container>
       <div className="sidebar-menu">
         <ButtonText icon={List} onClick={showSideBar} />
-        {sidebar && <Sidebar active={setSideBar} />}
+        {sidebar && <Sidebar active={setSideBar} admin={admin} />}
       </div>
 
       <div className="logo">
         <img src={icon} alt="" />
         <h1>food explorer</h1>
 
-        {isAdmin ? <span>admin</span> : <></>}
+        {admin ? <span>admin</span> : <></>}
       </div>
 
       <div className="search">
@@ -42,7 +42,7 @@ export function Header({ isAdmin = true }) {
         />
       </div>
 
-      {isAdmin ? (
+      {admin ? (
         <Link to="/new">
           <Button title="Novo prato" id="new-dishe" />
         </Link>

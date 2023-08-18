@@ -1,3 +1,5 @@
+import { useAuth } from '../../hooks/auth';
+
 import { Container } from './styles';
 
 import { Header } from '../../components/Header';
@@ -8,9 +10,12 @@ import { Carrousel } from '../../components/Carrousel';
 import cookie from '../../assets/cookie.svg';
 
 export function Home() {
+  const { user } = useAuth();
+  const { admin } = user;
+
   return (
     <Container>
-      <Header />
+      <Header admin={admin} />
 
       <main>
         <div className="text-header">

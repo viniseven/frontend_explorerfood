@@ -6,7 +6,7 @@ import { Footer } from '../Footer';
 
 import { MagnifyingGlass, X } from '@phosphor-icons/react';
 
-export function Sidebar({ active, isAdmin }) {
+export function Sidebar({ active, admin }) {
   const closeSidebar = () => {
     active(false);
   };
@@ -25,7 +25,7 @@ export function Sidebar({ active, isAdmin }) {
         />
 
         <div className="btn-actions">
-          {isAdmin ? <ButtonText title="Novo prato" /> : null}
+          {admin ? <ButtonText title="Novo prato" /> : null}
           <ButtonText title="Sair" />
         </div>
       </ContentMenu>
