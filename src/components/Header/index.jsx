@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useAuth } from '../../hooks/auth';
 import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
@@ -13,6 +14,8 @@ import { Button } from '../Button';
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 
 export function Header({ admin }) {
+  const { signOut } = useAuth();
+
   let value = 0;
 
   const [sidebar, setSideBar] = useState(false);
@@ -57,7 +60,7 @@ export function Header({ admin }) {
         </>
       )}
 
-      <ButtonText icon={SignOut} id="logout" />
+      <ButtonText icon={SignOut} id="logout" onClick={signOut} />
     </Container>
   );
 }
