@@ -35,8 +35,6 @@ export function AddDishe() {
 
     setIngredients((prevState) => [...prevState, newIngredient]);
     setNewIngredient('');
-
-    console.log(ingredients);
   }
 
   function handleRemoveIngredient(deleted) {
@@ -58,15 +56,19 @@ export function AddDishe() {
     const fileUpload = new FormData();
     fileUpload.append('image', image);
 
-    await api
-      .post('/dishes', {
-        image: fileUpload,
+    fileUpload.append(
+      'data',
+      JSON.stringify({
         name,
         category,
         ingredients,
         price,
         description,
       })
+    );
+
+    await api
+      .post('/dishes', fileUpload)
       .then(() => {
         navigate('/');
         alert('Prato cadastrado com sucesso');
@@ -122,9 +124,8 @@ export function AddDishe() {
                 id="category"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option defaultValue="Refeições" value="Refeições">
-                  Refeição
-                </option>
+                <option value="">Selecione uma Categoria</option>
+                <option value="Refeições">Refeição</option>
                 <option value="Sobremesas">Sobremesa</option>
                 <option value="Bebidas">Bebida</option>
               </select>

@@ -47,6 +47,10 @@ export const Form = styled.form`
     .input-wrapper {
       margin-bottom: 2.4rem;
 
+      input {
+        outline: none;
+      }
+
       label {
         font-family: ${({ theme }) => theme.FONTS.ROBOTO};
 
