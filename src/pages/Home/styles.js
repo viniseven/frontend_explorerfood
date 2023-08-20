@@ -54,29 +54,6 @@ export const Container = styled.div`
       }
     }
 
-    .carousel {
-      margin-top: 2.3rem;
-      overflow: hidden;
-
-      position: relative;
-
-      .controls-carousel {
-        display: flex;
-        justify-content: space-between;
-
-        position: absolute;
-        top: 40%;
-        z-index: 1;
-
-        width: 100%;
-      }
-
-      .cards {
-        display: flex;
-        gap: 1.6rem;
-      }
-    }
-
     @media (min-width: 768px) {
       .text-header {
         height: 18rem;

@@ -104,7 +104,7 @@ export function AddDishe() {
                 <label htmlFor="image">Selecione a imagem</label>
                 <input
                   type="file"
-                  accept="image/png, image/jpeg"
+                  accept="image/png, image/jpeg, image/svg"
                   onChange={(e) => setImage(e.target.files[0])}
                 />
               </div>

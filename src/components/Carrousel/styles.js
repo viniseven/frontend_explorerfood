@@ -25,7 +25,8 @@ export const Container = styled.div`
 
   .card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 2.7rem;
     flex: none;
 
     position: relative;

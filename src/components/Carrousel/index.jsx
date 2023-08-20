@@ -1,4 +1,6 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
+
+import { api } from '../../services/api';
 
 import { Container } from './styles';
 import { ButtonText } from '../ButtonText';
@@ -6,41 +8,20 @@ import { Button } from '../Button';
 import { Card } from '../Card';
 
 import {
-  Minus,
-  Plus,
   CaretLeft,
   CaretRight,
+  Minus,
+  Plus,
   PencilSimple,
 } from '@phosphor-icons/react';
 
-import SaladaRavanello from '../../assets/SaladaRavanello.svg';
-import theme from '../../styles/theme';
-
-export function Carrousel({ isAdmin, dishesData }) {
+export function Carrousel({ isAdmin, dishes }) {
   const [quantity, setQuantity] = useState(0);
   const [favorites, setFavorites] = useState([]);
 
   const carousel = useRef(null);
 
-  function handleAddFavorites() {
-    setFavorites([...favorites]);
-
-    const btnFav = document.getElementById('btn-favorite');
-    const icon = btnFav.querySelector('svg');
-
-    icon.setAttribute('fill', theme.COLORS.TOMATO_100);
-    icon.setAttribute('stroke', theme.COLORS.TOMATO_100);
-  }
-
-  function handleAddDishe() {
-    setQuantity(quantity + 1);
-  }
-
-  function handleRemoveDishe() {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  }
+  const image = `${api.defaults.baseURL}/files`;
 
   function handleLeftClick(e) {
     e.preventDefault();
@@ -52,12 +33,31 @@ export function Carrousel({ isAdmin, dishesData }) {
     carousel.current.scrollLeft += carousel.current.offsetWidth;
   }
 
+  function handleAddFavorites() {
+    setFavorites([...favorites]);
+
+    const btnFav = document.getElementById('btn-favorite');
+    const icon = btnFav.querySelector('svg');
+
+    icon.setAttribute('fill', theme.COLORS.TOMATO_100);
+    icon.setAttribute('stroke', theme.COLORS.TOMATO_100);
+  }
+  function handleAddDishe() {
+    setQuantity(quantity + 1);
+  }
+
+  function handleRemoveDishe() {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  }
+
   return (
     <Container>
       <div className="cards" ref={carousel}>
         <div className="card">
-          {dishesData.map((dishe) => (
-            <Card key={String(dishe.id)}>
+          {dishes.map((dishe) => (
+            <Card key={dishe.id}>
               {!isAdmin ? (
                 <button id="btn-favorite" onClick={handleAddFavorites}>
                   <svg
@@ -73,15 +73,18 @@ export function Carrousel({ isAdmin, dishesData }) {
               ) : (
                 <ButtonText icon={PencilSimple} />
               )}
-              <img src={SaladaRavanello} alt="Imagem do prato" />
+              <img
+                src={`${api.defaults.baseURL}/files/${dishe.img_dishe}`}
+                alt="Imagem do prato"
+              />
               <h1>{dishe.name}</h1>
               <p>{dishe.description}</p>
-              <span>{`R$ ${dishe.price}`}</span>
+              <span>{dishe.price}</span>
               {!isAdmin ? (
                 <div className="choose-dishe">
                   <div>
                     <ButtonText icon={Minus} onClick={handleRemoveDishe} />
-                    <span>{quantity}</span>
+                    <span>0</span>
                     <ButtonText icon={Plus} onClick={handleAddDishe} />
                   </div>
                   <Button title="incluir" />
