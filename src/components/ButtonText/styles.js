@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.button`
-  border: 0;
   background-color: transparent;
 
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
+  line-height: 33.6px;
   font-size: 2.4rem;
 
   color: ${({ theme }) => theme.COLORS.WHITE};
@@ -13,5 +13,5 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
 
-  width: auto;
+  border: 0;
 `;

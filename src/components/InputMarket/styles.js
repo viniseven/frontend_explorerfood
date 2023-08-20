@@ -22,15 +22,18 @@ export const Container = styled.div`
     background: none;
 
     svg {
-      width: 8px;
+      width: 16px;
       height: auto;
+
+      margin-top: 0.5rem;
     }
   }
 
   > input {
     background: transparent !important;
 
-    width: auto;
     height: 3.2rem;
+
+    outline: none;
   }
 `;

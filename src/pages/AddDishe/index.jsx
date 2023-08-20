@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Form } from './styles';
 
@@ -10,41 +11,122 @@ import { TextArea } from '../../components/TextArea';
 
 import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
 
+import { api } from '../../services/api';
+
 export function AddDishe() {
+  const [image, setImage] = useState(null);
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredient, setNewIngredient] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+
+  const navigate = useNavigate();
+
+  function handleBackHome() {
+    navigate('/');
+  }
+
+  function handleAddIngredient() {
+    if (!newIngredient) {
+      return alert('Por favor insira um ingrediente');
+    }
+
+    setIngredients((prevState) => [...prevState, newIngredient]);
+    setNewIngredient('');
+
+    console.log(ingredients);
+  }
+
+  function handleRemoveIngredient(deleted) {
+    setIngredients((prevState) =>
+      prevState.filter((ingredient) => ingredient !== deleted)
+    );
+  }
+
+  async function handleCreateDishe() {
+    if (!name || !image || !category || !price || !description) {
+      console.log(name);
+      console.log(image);
+      console.log(category);
+      console.log(price);
+      console.log(description);
+      return alert('Por favor preencha todos os campos');
+    }
+
+    const fileUpload = new FormData();
+    fileUpload.append('image', image);
+
+    await api
+      .post('/dishes', {
+        image: fileUpload,
+        name,
+        category,
+        ingredients,
+        price,
+        description,
+      })
+      .then(() => {
+        navigate('/');
+        alert('Prato cadastrado com sucesso');
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert('Não foi possível cadastrar prato, tente novamente');
+        }
+      });
+  }
+
   return (
     <Container>
       <Header />
 
       <main>
-        <Link to="/">
-          <ButtonText icon={CaretLeft} title="voltar" />
-        </Link>
+        <ButtonText icon={CaretLeft} title="voltar" onClick={handleBackHome} />
 
         <Form>
           <h1>Novo prato</h1>
 
           <fieldset>
             <div className="input-wrapper">
-              <label htmlFor="image">Imagem do prato</label>
+              <span>Imagem do prato</span>
               <div className="input-file">
-                <input type="file" id="image" />
-                <UploadSimple size={24} />
-                <span>Selecione imagem</span>
+                <UploadSimple size={34} />
+                <label htmlFor="image">Selecione a imagem</label>
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
               </div>
             </div>
 
             <div className="input-wrapper">
               <label htmlFor="name">Nome</label>
-              <input type="text" placeholder="Ex.: Salada Ceasar" id="name" />
+              <input
+                type="text"
+                placeholder="Ex.: Batata Frita"
+                id="name"
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
 
             <div className="input-wrapper">
               <label htmlFor="category">Categoria</label>
 
-              <select name="category" id="category">
-                <option value="refeicao">Refeição</option>
-                <option value="sobremesa">Sobremesa</option>
-                <option value="bebida">Bebida</option>
+              <select
+                name="category"
+                id="category"
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option defaultValue="Refeições" value="Refeições">
+                  Refeição
+                </option>
+                <option value="Sobremesas">Sobremesa</option>
+                <option value="Bebidas">Bebida</option>
               </select>
             </div>
           </fieldset>
@@ -53,23 +135,45 @@ export function AddDishe() {
             <div className="input-wrapper">
               <label htmlFor="ingredient">Ingredientes</label>
               <div className="group-ingredients">
-                <InputMarket isNew />
+                {ingredients.map((ingredient, index) => (
+                  <InputMarket
+                    key={String(index)}
+                    value={ingredient}
+                    onClick={() => handleRemoveIngredient(ingredient)}
+                  />
+                ))}
+
+                <InputMarket
+                  isNew
+                  placeholder="Insira o ingrediente"
+                  value={newIngredient}
+                  onChange={(e) => setNewIngredient(e.target.value)}
+                  onClick={handleAddIngredient}
+                />
               </div>
             </div>
 
             <div className="input-wrapper">
               <label htmlFor="price">Preço</label>
-              <input type="number" placeholder="R$ 00,00" id="price" />
+              <input
+                type="number"
+                placeholder="R$ 00,00"
+                id="price"
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </div>
           </fieldset>
 
           <div className="input-wrapper">
             <label htmlFor="description">Descrição</label>
-            <TextArea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" />
+            <TextArea
+              placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </div>
 
           <div className="buttom-footer-form">
-            <Button title="Salvar alterações" />
+            <Button title="Salvar" onClick={handleCreateDishe} />
           </div>
         </Form>
       </main>

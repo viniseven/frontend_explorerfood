@@ -13,4 +13,6 @@ export const Container = styled.textarea`
   padding: 1.4rem;
 
   resize: none;
+
+  margin-top: 1.6rem;
 `;
