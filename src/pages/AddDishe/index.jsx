@@ -163,6 +163,8 @@ export function AddDishe() {
               <input
                 type="number"
                 placeholder="R$ 00,00"
+                step="0.01"
+                min="0.01"
                 id="price"
                 onChange={(e) => setPrice(e.target.value)}
               />

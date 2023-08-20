@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { Link } from 'react-router-dom';
+
+import { api } from '../../services/api';
 
 import { Container } from './styles';
 
@@ -13,12 +15,28 @@ import { Button } from '../Button';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 
-export function Header({ admin }) {
+export function Header({ admin, sendData }) {
   const { signOut } = useAuth();
+  const [search, setSearch] = useState('');
+  const [dishes, setDishes] = useState([]);
 
   let value = 0;
 
   const [sidebar, setSideBar] = useState(false);
+
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(
+        `/dishes?name=${search}&ingredients=${search}`
+      );
+      setDishes(response.data);
+      sendData(dishes);
+
+      console.log(dishes);
+    }
+
+    fetchDishes();
+  }, [, search]);
 
   function showSideBar() {
     setSideBar(!sidebar);
@@ -42,10 +60,11 @@ export function Header({ admin }) {
         <Input
           icon={MagnifyingGlass}
           placeholder="Busque por pratos ou ingredientes"
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
-      {admin ? (
+      {!admin ? (
         <Link to="/new">
           <Button title="Novo prato" id="new-dishe" />
         </Link>

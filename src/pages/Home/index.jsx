@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 
 import { Container } from './styles';
@@ -12,11 +13,19 @@ import cookie from '../../assets/cookie.svg';
 export function Home() {
   const { user } = useAuth();
   const { admin } = user;
+  const [dishesData, setDishesData] = useState([]);
+
+  useEffect(() => {
+    dishesData;
+  }, []);
+
+  const receiptDataDishe = (data) => {
+    setDishesData(data);
+  };
 
   return (
     <Container>
-      <Header admin={admin} />
-
+      <Header sendData={receiptDataDishe} />
       <main>
         <div className="text-header">
           <img
@@ -31,7 +40,7 @@ export function Home() {
         </div>
 
         <Section title="Refeições">
-          <Carrousel />
+          <Carrousel dishesData={dishesData} />
         </Section>
       </main>
       <Footer />
