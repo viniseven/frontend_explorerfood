@@ -29,6 +29,10 @@ export function AddDishe() {
   }
 
   function handleAddIngredient() {
+    if (ingredients.includes(newIngredient)) {
+      return alert('Esse ingrediente já foi inserido');
+    }
+
     if (!newIngredient) {
       return alert('Por favor insira um ingrediente');
     }
