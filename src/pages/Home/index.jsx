@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../hooks/auth';
 
 import { Container } from './styles';
 
@@ -11,10 +10,11 @@ import { Carrousel } from '../../components/Carrousel';
 import cookie from '../../assets/cookie.svg';
 import { api } from '../../services/api';
 
-export function Home({ inputSearch }) {
-  const { user } = useAuth();
+export function Home() {
   const [valueInput, setValueInput] = useState('');
   const [dishes, setDishes] = useState([]);
+
+  console.log(dishes);
 
   const handleInput = (newValue) => {
     setValueInput(newValue);
@@ -22,10 +22,6 @@ export function Home({ inputSearch }) {
 
   useEffect(() => {
     async function fetchDishes() {
-      if (window.location.pathname === '/') {
-        const response = await api.get('/dishes');
-      }
-
       const response = await api.get(
         `/dishes?name=${valueInput}&ingredients=${valueInput}`
       );

@@ -17,6 +17,8 @@ export const Container = styled.div`
 
   cursor: grabbing;
 
+  width: 21rem;
+
   > button {
     width: fit-content;
 

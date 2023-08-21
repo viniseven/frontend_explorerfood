@@ -26,8 +26,6 @@ export function Header({ onInputChange }) {
     onInputChange(value);
   };
 
-  let value = 0;
-
   function showSideBar() {
     setSideBar(!sidebar);
   }
@@ -36,7 +34,13 @@ export function Header({ onInputChange }) {
     <Container>
       <div className="sidebar-menu">
         <ButtonText icon={List} onClick={showSideBar} />
-        {sidebar && <Sidebar active={setSideBar} admin={admin} />}
+        {sidebar && (
+          <Sidebar
+            active={setSideBar}
+            admin={admin}
+            handleInput={handleInput}
+          />
+        )}
       </div>
 
       <div className="logo">
@@ -62,11 +66,7 @@ export function Header({ onInputChange }) {
       ) : (
         <>
           <ButtonText icon={Receipt} id="btn-icon-receipt" />
-          <Button
-            icon={Receipt}
-            title={`Pedidos (${value})`}
-            id="btn-receipt"
-          />
+          <Button icon={Receipt} title={`Pedidos ()`} id="btn-receipt" />
         </>
       )}
 
