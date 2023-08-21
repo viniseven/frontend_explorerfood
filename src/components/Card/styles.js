@@ -19,6 +19,8 @@ export const Container = styled.div`
 
   width: 21rem;
 
+  border-radius: 8px;
+
   > button {
     width: fit-content;
 

@@ -100,15 +100,17 @@ export function Carrousel({ dishes }) {
         </div>
       </div>
 
-      <div className="buttons-carousel">
-        <div className="btn-left">
-          <ButtonText icon={CaretLeft} onClick={handleLeftClick} />
-        </div>
+      {dishes.length > 0 && (
+        <div className="buttons-carousel">
+          <div className="btn-left">
+            <ButtonText icon={CaretLeft} onClick={handleLeftClick} />
+          </div>
 
-        <div className="btn-right">
-          <ButtonText icon={CaretRight} onClick={handleRightClick} />
+          <div className="btn-right">
+            <ButtonText icon={CaretRight} onClick={handleRightClick} />
+          </div>
         </div>
-      </div>
+      )}
     </Container>
   );
 }
