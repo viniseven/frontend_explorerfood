@@ -14,8 +14,6 @@ export function Home() {
   const [valueInput, setValueInput] = useState('');
   const [dishes, setDishes] = useState([]);
 
-  console.log(dishes);
-
   const handleInput = (newValue) => {
     setValueInput(newValue);
   };
@@ -32,6 +30,20 @@ export function Home() {
     fetchDishes();
   }, [valueInput]);
 
+  const categoryRefeicao = dishes.filter(
+    (dishe) => dishe.category === 'Refeições'
+  );
+
+  const categorySobremesas = dishes.filter(
+    (dishe) => dishe.category === 'Sobremesas'
+  );
+
+  const categoryBebidas = dishes.filter(
+    (dishe) => dishe.category === 'Bebidas'
+  );
+
+  console.log(categoryRefeicao);
+
   return (
     <Container>
       <Header onInputChange={handleInput} />
@@ -47,10 +59,23 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </div>
+        {categoryRefeicao.length > 0 && (
+          <Section title="Refeições">
+            <Carrousel dishes={categoryRefeicao} />
+          </Section>
+        )}
 
-        <Section title="Refeições">
-          <Carrousel dishes={dishes} />
-        </Section>
+        {categorySobremesas.length > 0 && (
+          <Section title="Sobremesas">
+            <Carrousel dishes={categorySobremesas} />
+          </Section>
+        )}
+
+        {categoryBebidas.length > 0 && (
+          <Section title="Sobremesas">
+            <Carrousel dishes={categoryBebidas} />
+          </Section>
+        )}
       </main>
       <Footer />
     </Container>
