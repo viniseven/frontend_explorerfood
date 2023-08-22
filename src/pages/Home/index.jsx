@@ -42,8 +42,6 @@ export function Home() {
     (dishe) => dishe.category === 'Bebidas'
   );
 
-  console.log(categoryRefeicao);
-
   return (
     <Container>
       <Header onInputChange={handleInput} />

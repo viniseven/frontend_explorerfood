@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -18,6 +19,7 @@ import {
 } from '@phosphor-icons/react';
 
 export function Carrousel({ dishes }) {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [quantity, setQuantity] = useState(0);
   const [favorites, setFavorites] = useState([]);
@@ -26,7 +28,9 @@ export function Carrousel({ dishes }) {
 
   const carousel = useRef(null);
 
-  const image = `${api.defaults.baseURL}/files`;
+  function handleDetailsPage(id) {
+    navigate(`/details/${id}`);
+  }
 
   function handleLeftClick(e) {
     e.preventDefault();
@@ -66,7 +70,7 @@ export function Carrousel({ dishes }) {
               {admin ? (
                 <ButtonText icon={PencilSimple} />
               ) : (
-                <button id="btn-favorite" onClick={handleAddFavorites}>
+                <button id="btn-favorite">
                   <svg
                     width="26"
                     height="24"
@@ -78,10 +82,13 @@ export function Carrousel({ dishes }) {
                   </svg>
                 </button>
               )}
+
               <img
                 src={`${api.defaults.baseURL}/files/${dishe.img_dishe}`}
                 alt="Imagem do prato"
+                onClick={() => handleDetailsPage(dishe.id)}
               />
+
               <h1>{dishe.name}</h1>
               <p>{dishe.description}</p>
               <span>{dishe.price}</span>

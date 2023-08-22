@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
+
 import { Container } from './styles';
 
 import { CaretLeft } from '@phosphor-icons/react';
@@ -10,54 +14,82 @@ import { Footer } from '../../components/Footer';
 
 import { Minus, Plus, Receipt } from '@phosphor-icons/react';
 
-import SaladaRavanello from '../../assets/SaladaRavanello.svg';
+import { api } from '../../services/api';
 
-export function Details({ isAdmin }) {
+export function Details({}) {
+  const { user } = useAuth();
+  const { admin } = user;
+  const params = useParams();
+  const navigate = useNavigate();
+  const [dishe, setDishe] = useState('');
+
+  const { ingredients } = dishe;
+
+  console.log(dishe);
+
+  function handleBackPage() {
+    navigate(-1);
+  }
+
+  useEffect(() => {
+    async function fetchDetailsDishe() {
+      const response = await api.get(`/dishes/${params.id}`);
+      setDishe(response.data);
+    }
+
+    fetchDetailsDishe();
+  }, []);
+
   return (
     <Container>
       <Header />
+      {dishe && (
+        <main>
+          <ButtonText
+            icon={CaretLeft}
+            title="voltar"
+            onClick={handleBackPage}
+          />
 
-      <main>
-        <ButtonText icon={CaretLeft} title="voltar" />
+          <div className="content-details-dishe">
+            <img
+              src={`${api.defaults.baseURL}/files/${dishe.img_dishe}`}
+              alt="Imagem do prato"
+            />
 
-        <div className="content-details-dishe">
-          <img src={SaladaRavanello} alt="Imagem do prato" />
+            <div>
+              <h1>{dishe.name}</h1>
+              <p>{dishe.description}</p>
 
-          <div>
-            <h1>Salada Ravanello</h1>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-            </p>
-
-            <div className="tag-ingredients">
-              <Tag title="alface" />
-              <Tag title="cebola" />
-              <Tag title="pão naan" />
-              <Tag title="pepino" />
-              <Tag title="rabanete" />
-              <Tag title="tomate" />
-            </div>
-
-            <div className="controls-dishe">
-              {isAdmin ? (
-                <div className="choose-dishe">
-                  <div>
-                    <ButtonText icon={Minus} />
-                    01
-                    <ButtonText icon={Plus} />
-                  </div>
-
-                  <ButtonText icon={Receipt} title={`pedir - R$ 25,00`} />
-                </div>
-              ) : (
-                <div className="edit-dishe">
-                  <Button title="Editar prato" />
+              {dishe.ingredients && (
+                <div className="tag-ingredients">
+                  {dishe.ingredients.map((ingredient) => (
+                    <Tag key={ingredient.id} title={ingredient.ingredient} />
+                  ))}
                 </div>
               )}
+
+              <div className="controls-dishe">
+                {admin ? (
+                  <div className="edit-dishe">
+                    <Button title="Editar prato" />
+                  </div>
+                ) : (
+                  <div className="choose-dishe">
+                    <div>
+                      <ButtonText icon={Minus} />
+                      01
+                      <ButtonText icon={Plus} />
+                    </div>
+
+                    <ButtonText icon={Receipt} title={`pedir - R$ 25,00`} />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      )}
 
       <Footer />
     </Container>
