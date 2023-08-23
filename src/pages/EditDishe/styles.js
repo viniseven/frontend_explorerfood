@@ -89,25 +89,32 @@ export const Form = styled.form`
       .input-file {
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
-        padding: 1.2rem 3.2rem;
-
         border-radius: 8px;
+
+        height: 4.8rem;
 
         display: flex;
         align-items: center;
+        gap: 8px;
 
-        width: 100%;
+        padding-left: 1.6rem;
 
-        input {
+        margin-top: 1.3rem;
+
+        position: relative;
+
+        input[type='file'] {
           opacity: 0;
 
           cursor: pointer;
 
-          display: none;
+          display: block;
         }
 
-        span {
-          margin-left: 8px;
+        label {
+          margin-bottom: 0;
+
+          font-size: 1.4rem;
         }
       }
 

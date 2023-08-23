@@ -23,12 +23,12 @@ export function Details({}) {
   const navigate = useNavigate();
   const [dishe, setDishe] = useState('');
 
-  const { ingredients } = dishe;
-
-  console.log(dishe);
-
   function handleBackPage() {
     navigate(-1);
+  }
+
+  function handleEditDishePage(id) {
+    navigate(`/editdishe/${id}`);
   }
 
   useEffect(() => {
@@ -72,7 +72,10 @@ export function Details({}) {
               <div className="controls-dishe">
                 {admin ? (
                   <div className="edit-dishe">
-                    <Button title="Editar prato" />
+                    <Button
+                      title="Editar prato"
+                      onClick={() => handleEditDishePage(dishe.id)}
+                    />
                   </div>
                 ) : (
                   <div className="choose-dishe">

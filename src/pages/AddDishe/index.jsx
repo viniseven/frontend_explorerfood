@@ -14,6 +14,8 @@ import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
 import { api } from '../../services/api';
 
 export function AddDishe() {
+  const navigate = useNavigate();
+
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
@@ -21,8 +23,6 @@ export function AddDishe() {
   const [newIngredient, setNewIngredient] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-
-  const navigate = useNavigate();
 
   function handleBackHome() {
     navigate('/');
@@ -49,11 +49,6 @@ export function AddDishe() {
 
   async function handleCreateDishe() {
     if (!name || !image || !category || !price || !description) {
-      console.log(name);
-      console.log(image);
-      console.log(category);
-      console.log(price);
-      console.log(description);
       return alert('Por favor preencha todos os campos');
     }
 
