@@ -11,24 +11,25 @@ import cookie from '../../assets/cookie.svg';
 import { api } from '../../services/api';
 
 export function Home() {
-  const [valueInput, setValueInput] = useState('');
-  const [dishes, setDishes] = useState([]);
+  const [searchDishe, setSearchDishe] = useState('')
+  const [dishes, setDishes] = useState([])
+ 
 
-  const handleInput = (newValue) => {
-    setValueInput(newValue);
+  const dataValueInput = (valueSearch) => {
+    setSearchDishe(valueSearch);
   };
 
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(
-        `/dishes?name=${valueInput}&ingredients=${valueInput}`
+        `/dishes?name=${searchDishe}&ingredients=${searchDishe}`
       );
 
       setDishes(response.data);
     }
 
     fetchDishes();
-  }, [valueInput]);
+  }, [searchDishe]);
 
   const categoryRefeicao = dishes.filter(
     (dishe) => dishe.category === 'Refeições'
@@ -44,7 +45,7 @@ export function Home() {
 
   return (
     <Container>
-      <Header onInputChange={handleInput} />
+      <Header valueInput={dataValueInput} />
       <main>
         <div className="text-header">
           <img

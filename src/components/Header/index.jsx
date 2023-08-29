@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { Link } from 'react-router-dom';
 
@@ -13,17 +13,16 @@ import { Button } from '../Button';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 
-export function Header({ onInputChange }) {
+export function Header(props) {
   const { signOut, user } = useAuth();
   const [sidebar, setSideBar] = useState(false);
-  const [inputSearch, setInputSearch] = useState('');
+  const [search, setSearch] = useState('');
 
   const { admin } = user;
 
-  const handleInput = (e) => {
-    const value = e.target.value;
-    setInputSearch(value);
-    onInputChange(value);
+  const handleValueInput = (e) => {
+    setSearch(e.target.value);
+    props.valueInput(search)
   };
 
   function showSideBar() {
@@ -38,7 +37,7 @@ export function Header({ onInputChange }) {
           <Sidebar
             active={setSideBar}
             admin={admin}
-            handleInput={handleInput}
+            onChange={handleValueInput}
           />
         )}
       </div>
@@ -54,8 +53,7 @@ export function Header({ onInputChange }) {
         <Input
           icon={MagnifyingGlass}
           placeholder="Busque por pratos ou ingredientes"
-          onChange={handleInput}
-          value={inputSearch}
+          onChange={handleValueInput}
         />
       </div>
 
