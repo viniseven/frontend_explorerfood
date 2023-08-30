@@ -22,7 +22,7 @@ export function Home() {
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(
-        `/dishes?name=${searchDishe}&ingredients=${searchDishe}`
+        `/dishes?name=${searchDishe}`
       );
 
       setDishes(response.data);
@@ -31,8 +31,9 @@ export function Home() {
     fetchDishes();
   }, [searchDishe]);
 
+
   const categoryRefeicao = dishes.filter(
-    (dishe) => dishe.category === 'Refeições'
+    (dishe) => dishe.category === 'Refeicoes'
   );
 
   const categorySobremesas = dishes.filter(
@@ -42,6 +43,8 @@ export function Home() {
   const categoryBebidas = dishes.filter(
     (dishe) => dishe.category === 'Bebidas'
   );
+  
+  
 
   return (
     <Container>
@@ -58,6 +61,7 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </div>
+        
         {categoryRefeicao.length > 0 && (
           <Section title="Refeições">
             <Carrousel dishes={categoryRefeicao} />
@@ -71,7 +75,7 @@ export function Home() {
         )}
 
         {categoryBebidas.length > 0 && (
-          <Section title="Sobremesas">
+          <Section title="Bebidas">
             <Carrousel dishes={categoryBebidas} />
           </Section>
         )}

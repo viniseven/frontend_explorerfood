@@ -65,8 +65,8 @@ export function Carrousel({ dishes }) {
     <Container>
       <div className="cards" ref={carousel}>
         <div className="card">
-          {dishes.map((dishe) => (
-            <Card key={dishe.id}>
+          {dishes.map((dishe, index) => (
+            <Card key={index}>
               {admin ? (
                 <ButtonText icon={PencilSimple} />
               ) : (

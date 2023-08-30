@@ -124,7 +124,7 @@ export function AddDishe() {
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="">Selecione uma Categoria</option>
-                <option value="Refeições">Refeição</option>
+                <option value="Refeicoes">Refeição</option>
                 <option value="Sobremesas">Sobremesa</option>
                 <option value="Bebidas">Bebida</option>
               </select>

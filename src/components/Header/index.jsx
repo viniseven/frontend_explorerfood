@@ -16,14 +16,13 @@ import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 export function Header(props) {
   const { signOut, user } = useAuth();
   const [sidebar, setSideBar] = useState(false);
-  const [search, setSearch] = useState('');
+ 
 
   const { admin } = user;
 
-  const handleValueInput = (e) => {
-    setSearch(e.target.value);
-    props.valueInput(search)
-  };
+  function handleSidebarValueInput(value){
+    props.valueInput(value)
+  }
 
   function showSideBar() {
     setSideBar(!sidebar);
@@ -36,8 +35,8 @@ export function Header(props) {
         {sidebar && (
           <Sidebar
             active={setSideBar}
-            admin={admin}
-            onChange={handleValueInput}
+            admin
+            sidebarValueInput={handleSidebarValueInput}
           />
         )}
       </div>
@@ -53,7 +52,7 @@ export function Header(props) {
         <Input
           icon={MagnifyingGlass}
           placeholder="Busque por pratos ou ingredientes"
-          onChange={handleValueInput}
+          onChange={(e)=> handleSidebarValueInput(e.target.value)}
         />
       </div>
 
