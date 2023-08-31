@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 			display: flex;
 
-			margin: 4.4rem 1.6rem 0 0;
+			margin: 4.4rem 1.6rem 0;
 
 			height: 12rem;
 

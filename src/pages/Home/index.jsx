@@ -58,7 +58,7 @@ export function Home() {
 					</div>
 				</div>
 
-				<div className='content-sections'>
+				<div className="content-sections">
 					{categoryRefeicao.length > 0 && (
 						<Section title="Refeições">
 							<Carrousel dishes={categoryRefeicao} />
