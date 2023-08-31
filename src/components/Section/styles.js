@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+	width: 100%;
 
-  margin-bottom: 6.1rem;
+	z-index: auto;
 
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin-left: 2.4rem;
-  }
+	position: relative;
+
+	background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
+
+	h2 {
+		font-size: 1.8rem;
+		font-weight: 500;
+		margin-left: 2.4rem;
+	}
 `;

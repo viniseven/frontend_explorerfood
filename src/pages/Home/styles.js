@@ -19,11 +19,9 @@ export const Container = styled.div`
 
 			display: flex;
 
-			margin: 4.4rem 1.6rem 6.2rem 3rem;
+			margin: 4.4rem 1.6rem 0 0;
 
 			height: 12rem;
-
-			overflow: hidden;
 
 			img {
 				position: relative;
@@ -56,6 +54,18 @@ export const Container = styled.div`
 					line-height: 16px;
 				}
 			}
+		}
+
+		.content-sections::before {
+			content: '';
+
+			display: block;
+
+			position: relative;
+
+			height: 4.9rem;
+
+			background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 		}
 
 		@media (min-width: 768px) {

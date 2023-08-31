@@ -58,23 +58,25 @@ export function Home() {
 					</div>
 				</div>
 
-				{categoryRefeicao.length > 0 && (
-					<Section title="Refeições">
-						<Carrousel dishes={categoryRefeicao} />
-					</Section>
-				)}
+				<div className='content-sections'>
+					{categoryRefeicao.length > 0 && (
+						<Section title="Refeições">
+							<Carrousel dishes={categoryRefeicao} />
+						</Section>
+					)}
 
-				{categorySobremesas.length > 0 && (
-					<Section title="Sobremesas">
-						<Carrousel dishes={categorySobremesas} />
-					</Section>
-				)}
+					{categorySobremesas.length > 0 && (
+						<Section title="Sobremesas">
+							<Carrousel dishes={categorySobremesas} />
+						</Section>
+					)}
 
-				{categoryBebidas.length > 0 && (
-					<Section title="Bebidas">
-						<Carrousel dishes={categoryBebidas} />
-					</Section>
-				)}
+					{categoryBebidas.length > 0 && (
+						<Section title="Bebidas">
+							<Carrousel dishes={categoryBebidas} />
+						</Section>
+					)}
+				</div>
 			</main>
 			<Footer />
 		</Container>
