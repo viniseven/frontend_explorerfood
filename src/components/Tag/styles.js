@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 4px 8px;
@@ -10,4 +10,4 @@ export const Container = styled.div`
   width: max-content;
 
   border-radius: 5px;
-`
+`;

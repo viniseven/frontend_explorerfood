@@ -11,15 +11,13 @@ import { Footer } from '../Footer';
 import { MagnifyingGlass, X } from '@phosphor-icons/react';
 
 export function Sidebar({ active, sidebarValueInput }) {
-  const {user, signOut } = useAuth();
-
+  const { user, signOut } = useAuth();
 
   const { admin } = user;
 
-  function handleValueInputSidebar(value){
-    sidebarValueInput(value)
+  function handleValueInputSidebar(value) {
+    sidebarValueInput(value);
   }
-
 
   const closeSidebar = () => {
     active(false);

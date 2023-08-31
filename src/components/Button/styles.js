@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Container  = styled.button`
+export const Container = styled.button`
   width: 100%;
   height: 4.8rem;
 
@@ -13,7 +13,7 @@ export const Container  = styled.button`
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 
-  &:hover{
+  &:hover {
     opacity: 0.8;
   }
-`
+`;

@@ -1,92 +1,99 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
+	width: 100vw;
 
-  display: grid;
+	display: grid;
 
-  main {
-    margin: 0 auto;
+	main {
+		margin: 0 auto;
 
-    max-width: 100%;
+		max-width: 100%;
 
-    overflow-x: hidden;
+		overflow-x: hidden;
 
-    .text-header {
-      background: ${({ theme }) => theme.GRADIENT.GRAD_200};
+		.text-header {
+			background: ${({ theme }) => theme.GRADIENT.GRAD_200};
 
-      border-radius: 3px;
+			border-radius: 3px;
 
-      display: flex;
+			display: flex;
 
-      margin: 4.4rem 1.6rem 6.2rem 3rem;
+			margin: 4.4rem 1.6rem 6.2rem 3rem;
 
-      height: 12rem;
+			height: 12rem;
 
-      img {
-        position: relative;
-        right: 30px;
-        bottom: 40px;
+			overflow: hidden;
 
-        width: 19.1rem;
-        height: 15.9rem;
-      }
+			img {
+				position: relative;
+				right: 30px;
+				bottom: 40px;
 
-      div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+				width: 19.1rem;
+				height: 15.9rem;
+			}
 
-        h1 {
-          font-size: clamp(1.125rem, -0.187rem + 5.598vw, 3.3rem);
-          font-weight: 600;
-          line-height: 25.2px;
+			div {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 
-          margin-bottom: 3px;
-        }
+				margin-right: 10rem;
 
-        p {
-          font-size: clamp(0.75rem, 0.5115rem + 1.0178vw, 1.6rem);
-          font-weight: 400;
-          font-family: ${({ theme }) => theme.FONTS.ROBOTO};
-          line-height: 16px;
-        }
-      }
-    }
+				h1 {
+					font-size: clamp(1.125rem, -0.187rem + 5.598vw, 3.3rem);
+					font-weight: 600;
+					line-height: 25.2px;
 
-    @media (min-width: 768px) {
-      .text-header {
-        height: 18rem;
+					margin-bottom: 3px;
+				}
 
-        margin-top: 10rem;
+				p {
+					font-size: clamp(0.75rem, 0.5115rem + 1.0178vw, 1.6rem);
+					font-weight: 400;
+					font-family: ${({ theme }) => theme.FONTS.ROBOTO};
+					line-height: 16px;
+				}
+			}
+		}
 
-        img {
-          width: 32.2rem;
-          height: 21.6rem;
-        }
+		@media (min-width: 768px) {
+			.text-header {
+				height: 18rem;
 
-        div {
-          h1 {
-            margin-bottom: 8px;
-          }
-        }
-      }
+				margin-top: 10rem;
 
-      @media (min-width: 1024px) {
-        .text-header {
-          height: 26rem;
+				img {
+					width: 32.2rem;
+					height: 21.6rem;
+				}
 
-          margin-top: 16rem;
+				div {
+					h1 {
+						margin-bottom: 8px;
+					}
+				}
+			}
 
-          img {
-            width: 63.2rem;
-            height: 40.6rem;
+			@media (min-width: 1024px) {
+				.text-header {
+					height: 26rem;
 
-            position: relative;
-            bottom: 110px;
-          }
-        }
-      }
-    }
-  }
+					margin-top: 16rem;
+
+					div {
+					}
+
+					img {
+						width: 63.2rem;
+						height: 40.6rem;
+
+						position: relative;
+						bottom: 110px;
+					}
+				}
+			}
+		}
+	}
 `;
