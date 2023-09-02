@@ -20,12 +20,11 @@ export default createGlobalStyle`
     font-size: 1.6rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 
-    margin: 0 auto;
-
+    overflow-x: hidden;
+   
     display: flex;
     justify-content: center;
-
-    overflow-x: hidden;
+    align-items: center;
   }
 
   a{

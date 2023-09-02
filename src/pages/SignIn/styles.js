@@ -1,80 +1,68 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1360px;
-  height: 100%;
+	height: 100%;
 
-  display: flex;
-  gap: 7.3rem;
-  flex-direction: column;
-  justify-content: center;
+	display: flex;
+	gap: 7.3rem;
+	flex-direction: column;
 
-  margin: 0 auto;
+	.brand {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
 
-  .brand {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
+		img {
+			width: 43px;
+			height: 43px;
+		}
+	}
 
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    align-items: center;
-    gap: 30rem;
+	@media (min-width: 1024px) {
+		flex-direction: row;
 
-    margin: 0 2rem;
+		align-items: center;
 
-    .brand {
-      width: 100%;
-    }
-  }
+		.brand {
+			h1 {
+				white-space: nowrap;
+			}
+		}
+	}
 `;
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+	align-items: center;
 
-  width: 100%;
+	h1 {
+		display: none;
+	}
 
-  h1 {
-    display: none;
+	.input-wrapper {
+		width: 100%;
+	}
 
-    font-size: 3.2rem;
-    font-weight: 500;
-    text-align: center;
-  }
+	.btn-signup {
+		font-size: 1.4rem;
+		font-weight: 500;
+	}
 
-  .input-wrapper {
-    label {
-      font-weight: 400;
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    }
+	@media (min-width: 1024px) {
+		padding: 6.4rem;
 
-    input {
-      font-size: 1.6rem;
-    }
-  }
+		background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  button:last-child {
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 24px;
-    color: ${({ theme }) => theme.COLORS.WHITE};
+		border-radius: 16px;
 
-    display: block;
-  }
+		width: 47.6rem;
+		height: auto;
 
-  @media (min-width: 1024px) {
-    background-color: ${({ theme }) => theme.COLORS.DARK_700};
-
-    padding: 6.4rem;
-
-    border-radius: 16px;
-
-    h1 {
-      display: block;
-    }
-  }
+		h1 {
+			display: block;
+		}
+	}
 `;
