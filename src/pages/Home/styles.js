@@ -4,6 +4,8 @@ export const Container = styled.div`
 	width: 100vw;
 
 	display: grid;
+	grid-area: 'content';
+	grid-template-areas: 'header' 'content';
 
 	main {
 		margin: 0 auto;

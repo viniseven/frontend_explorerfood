@@ -1,84 +1,86 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.COLORS.DARK_700};
+	background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3.2rem;
 
-  height: 11.4rem;
+	height: 11.4rem;
 
-  .logo {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+	grid-area: 'header';
 
-    h1 {
-      font-size: clamp(1.5rem, 1.5rem + 0.4vw, 2rem);
-    }
+	.logo {
+		display: flex;
+		gap: 8px;
+		align-items: center;
 
-    span {
-      font-size: 1.2rem;
-      font-weight: 400;
+		h1 {
+			font-size: clamp(1.5rem, 1.5rem + 0.4vw, 2rem);
+		}
 
-      color: ${({ theme }) => theme.COLORS.CAKE};
-    }
-  }
+		span {
+			font-size: 1.2rem;
+			font-weight: 400;
 
-  #new-dishe {
-    width: 21.6rem;
-  }
+			color: ${({ theme }) => theme.COLORS.CAKE};
+		}
+	}
 
-  #btn-receipt {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+	#new-dishe {
+		width: 21.6rem;
+	}
 
-    max-width: 21.6rem;
-  }
+	#btn-receipt {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
 
-  > button {
-    max-width: 21.6rem;
-  }
+		max-width: 21.6rem;
+	}
 
-  .logo {
-    position: relative;
+	> button {
+		max-width: 21.6rem;
+	}
 
-    span {
-      position: absolute;
-      right: 0;
-      top: 25px;
-    }
-  }
+	.logo {
+		position: relative;
 
-  @media (max-width: 1023px) {
-    .search {
-      display: none;
-    }
+		span {
+			position: absolute;
+			right: 0;
+			top: 25px;
+		}
+	}
 
-    #new-dishe {
-      display: none;
-    }
+	@media (max-width: 1023px) {
+		.search {
+			display: none;
+		}
 
-    #btn-receipt {
-      display: none;
-    }
+		#new-dishe {
+			display: none;
+		}
 
-    #logout {
-      display: none;
-    }
-  }
+		#btn-receipt {
+			display: none;
+		}
 
-  @media (min-width: 1024px) {
-    .sidebar-menu {
-      display: none;
-    }
+		#logout {
+			display: none;
+		}
+	}
 
-    #btn-icon-receipt {
-      display: none;
-    }
-  }
+	@media (min-width: 1024px) {
+		.sidebar-menu {
+			display: none;
+		}
+
+		#btn-icon-receipt {
+			display: none;
+		}
+	}
 `;

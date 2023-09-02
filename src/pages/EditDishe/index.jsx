@@ -20,18 +20,17 @@ export function EditDishe() {
 	const [image, setImage] = useState(null);
 	const [name, setName] = useState('');
 	const [category, setCategory] = useState('');
-	const [ingredientsSelected, setIngredientsSelected] = useState([]);
+	const [ingredients, setIngredients] = useState([]);
 	const [newIngredient, setNewIngredient] = useState('');
 	const [price, setPrice] = useState('');
 	const [description, setDescription] = useState('');
-	const [dishe, setDishe] = useState('');
 
 	function handleBackPage() {
 		navigate(-1);
 	}
 
 	function handleAddIngredient() {
-		if (ingredientsSelected.includes(newIngredient)) {
+		if (ingredients.includes(newIngredient)) {
 			return alert('Esse ingrediente já foi inserido');
 		}
 
@@ -39,12 +38,12 @@ export function EditDishe() {
 			return alert('Por favor insira um ingrediente');
 		}
 
-		setIngredientsSelected((prevState) => [...prevState, newIngredient]);
+		setIngredients((prevState) => [...prevState, newIngredient]);
 		setNewIngredient('');
 	}
 
 	function handleRemoveIngredient(deleted) {
-		setIngredientsSelected((prevState) =>
+		setIngredients((prevState) =>
 			prevState.filter((ingredient) => ingredient !== deleted),
 		);
 	}
@@ -69,7 +68,7 @@ export function EditDishe() {
 		);
 
 		await api
-			.put('/dishes', fileUpload)
+			.put(`/dishes/${params.id}`, fileUpload)
 			.then(() => {
 				navigate('/');
 				alert('Prato atualizado com sucesso');
@@ -87,7 +86,7 @@ export function EditDishe() {
 			const response = await api.get(`/dishes/${params.id}`);
 			const { ingredients } = response.data;
 			const newArray = ingredients.map((ingredient) => ingredient.ingredient);
-			setIngredientsSelected(newArray);
+			setIngredients(newArray);
 		}
 		fetchIngredients();
 	}, []);
@@ -135,7 +134,7 @@ export function EditDishe() {
 								onChange={(e) => setCategory(e.target.value)}
 							>
 								<option value="">Selecione uma Categoria</option>
-								<option value="Refeições">Refeição</option>
+								<option value="Refeicoes">Refeição</option>
 								<option value="Sobremesas">Sobremesa</option>
 								<option value="Bebidas">Bebida</option>
 							</select>
@@ -146,7 +145,7 @@ export function EditDishe() {
 						<div className="input-wrapper">
 							<label htmlFor="ingredient">Ingredientes</label>
 							<div className="group-ingredients">
-								{ingredientsSelected.map((ingredient, index) => (
+								{ingredients.map((ingredient, index) => (
 									<InputMarket
 										key={String(index)}
 										value={ingredient}

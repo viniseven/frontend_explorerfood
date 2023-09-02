@@ -21,10 +21,10 @@ export default createGlobalStyle`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 
     overflow-x: hidden;
-   
+
     display: flex;
     justify-content: center;
-    align-items: center;
+   
   }
 
   a{

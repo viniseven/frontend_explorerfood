@@ -20,9 +20,13 @@ export function Home() {
 
 	useEffect(() => {
 		async function fetchDishes() {
-			const response = await api.get(
-				`/dishes?name=${searchDishe}&ingredient=${searchDishe}`,
-			);
+			let response;
+
+			response = await api.get(`/dishes?name=${searchDishe}&ingredient`);
+
+			if (response.data == 0) {
+				response = await api.get(`/dishes?name&ingredient=${searchDishe}`);
+			}
 
 			setDishes(response.data);
 		}

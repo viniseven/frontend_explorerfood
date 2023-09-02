@@ -24,7 +24,7 @@ export function Details() {
 	const [dishe, setDishe] = useState();
 
 	function handleBackPage() {
-		navigate(-1);
+		navigate('/');
 	}
 
 	function handleEditDishePage(id) {
