@@ -1,79 +1,68 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1366px;
-  height: 100vh;
+	height: 100%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	display: flex;
+	gap: 7.3rem;
+	flex-direction: column;
 
-  gap: 7.3rem;
+	.brand {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
 
-  margin: 0 auto;
+		img {
+			width: 43px;
+			height: 43px;
+		}
+	}
 
-  .brand {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
+	@media (min-width: 1024px) {
+		flex-direction: row;
 
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    align-items: center;
-    gap: 30rem;
+		align-items: center;
 
-    margin: 0 2rem;
-
-    .brand {
-      width: 50%;
-    }
-  }
+		.brand {
+			h1 {
+				white-space: nowrap;
+			}
+		}
+	}
 `;
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+	align-items: center;
 
-  h1 {
-    display: none;
+	h1 {
+		display: none;
+	}
 
-    font-size: 3.2rem;
-    font-weight: 500;
-    text-align: center;
-  }
+	.input-wrapper {
+		width: 100%;
+	}
 
-  .input-wrapper {
-    label {
-      font-weight: 400;
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    }
+	.btn-signin {
+		font-size: 1.4rem;
+		font-weight: 500;
+	}
 
-    input {
-      font-size: 1.6rem;
-    }
-  }
+	@media (min-width: 1024px) {
+		padding: 6.4rem;
 
-  button:last-child {
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 24px;
-    color: ${({ theme }) => theme.COLORS.WHITE};
+		background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-    display: block;
-  }
+		border-radius: 16px;
 
-  @media (min-width: 1024px) {
-    background-color: ${({ theme }) => theme.COLORS.DARK_700};
+		width: 47.6rem;
+		height: auto;
 
-    padding: 6.4rem;
-
-    border-radius: 16px;
-
-    h1 {
-      display: block;
-    }
-  }
+		h1 {
+			display: block;
+		}
+	}
 `;
