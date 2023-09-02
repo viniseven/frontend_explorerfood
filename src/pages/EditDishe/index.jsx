@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { NumericFormat } from 'react-number-format';
+
 import { api } from '../../services/api';
 
 import { Container, Form } from './styles';
@@ -24,6 +26,7 @@ export function EditDishe() {
 	const [newIngredient, setNewIngredient] = useState('');
 	const [price, setPrice] = useState('');
 	const [description, setDescription] = useState('');
+	const [dishe, setDishe] = useState();
 
 	function handleBackPage() {
 		navigate(-1);
@@ -49,11 +52,14 @@ export function EditDishe() {
 	}
 
 	async function handleUpdateDishe() {
-		if (!name || !image || !category || !price || !description) {
+		if (!name || !category || !price || !description) {
 			return alert('Por favor preencha todos os campos');
 		}
 
 		const fileUpload = new FormData();
+
+		console.log(dishe.img_dishe);
+
 		fileUpload.append('image', image);
 
 		fileUpload.append(
@@ -84,6 +90,7 @@ export function EditDishe() {
 	useEffect(() => {
 		async function fetchIngredients() {
 			const response = await api.get(`/dishes/${params.id}`);
+			setDishe(response.data);
 			const { ingredients } = response.data;
 			const newArray = ingredients.map((ingredient) => ingredient.ingredient);
 			setIngredients(newArray);
@@ -165,11 +172,13 @@ export function EditDishe() {
 
 						<div className="input-wrapper">
 							<label htmlFor="price">Preço</label>
-							<input
-								type="number"
-								placeholder="R$ 00,00"
-								id="price"
+							<NumericFormat
+								allowNegative
+								decimalScale={2}
+								decimalSeparator=","
+								fixedDecimalScale
 								onChange={(e) => setPrice(e.target.value)}
+								placeholder="R$ 00,00"
 							/>
 						</div>
 					</fieldset>

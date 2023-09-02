@@ -34,6 +34,13 @@ export function Home() {
 		fetchDishes();
 	}, [searchDishe]);
 
+	dishes.map((dishe) => {
+		dishe.price = dishe.price.toLocaleString('pt-BR', {
+			style: 'currency',
+			currency: 'BRL',
+		});
+	});
+
 	const categoryRefeicao = dishes.filter(
 		(dishe) => dishe.category === 'Refeicoes',
 	);

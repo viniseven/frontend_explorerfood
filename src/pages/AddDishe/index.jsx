@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { NumericFormat } from 'react-number-format';
+
 import { Container, Form } from './styles';
 
 import { Header } from '../../components/Header';
@@ -155,13 +157,13 @@ export function AddDishe() {
 
 						<div className="input-wrapper">
 							<label htmlFor="price">Preço</label>
-							<input
-								type="number"
-								placeholder="R$ 00,00"
-								step="0.01"
-								min="0.01"
-								id="price"
+							<NumericFormat
+								allowNegative
+								decimalScale={2}
+								decimalSeparator=","
+								fixedDecimalScale
 								onChange={(e) => setPrice(e.target.value)}
+								placeholder="R$ 00,00"
 							/>
 						</div>
 					</fieldset>

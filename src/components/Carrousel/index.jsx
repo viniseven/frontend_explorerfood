@@ -54,6 +54,10 @@ export function Carrousel({ dishes }) {
 		setQuantity(quantity + 1);
 	}
 
+	function handleEditDishe(id) {
+		navigate(`/editdishe/${id}`);
+	}
+
 	function handleRemoveDishe() {
 		if (quantity > 0) {
 			setQuantity(quantity - 1);
@@ -67,7 +71,10 @@ export function Carrousel({ dishes }) {
 					{dishes.map((dishe, index) => (
 						<Card key={index}>
 							{admin ? (
-								<ButtonText icon={PencilSimple} />
+								<ButtonText
+									icon={PencilSimple}
+									onClick={() => handleEditDishe(dishe.id)}
+								/>
 							) : (
 								<button id="btn-favorite">
 									<svg
@@ -90,7 +97,7 @@ export function Carrousel({ dishes }) {
 
 							<h1>{dishe.name}</h1>
 							<p>{dishe.description}</p>
-							<span>{dishe.price}</span>
+							<span>R$ {dishe.price}</span>
 							{!admin ? (
 								<div className="choose-dishe">
 									<div>
