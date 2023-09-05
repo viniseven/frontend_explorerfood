@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -22,6 +22,7 @@ export function Carrousel({ dishes }) {
 	const { user } = useAuth();
 	const [quantity, setQuantity] = useState(0);
 	const [favorites, setFavorites] = useState([]);
+	const [newFavorite, setNewFavorite] = useState('');
 
 	const { admin } = user;
 
@@ -41,27 +42,22 @@ export function Carrousel({ dishes }) {
 		carousel.current.scrollLeft += carousel.current.offsetWidth;
 	}
 
-	function handleAddFavorites() {
-		setFavorites([...favorites]);
+	function handleAddFavorites(disheId) {}
 
-		const btnFav = document.getElementById('btn-favorite');
-		const icon = btnFav.querySelector('svg');
-
-		icon.setAttribute('fill', theme.COLORS.TOMATO_100);
-		icon.setAttribute('stroke', theme.COLORS.TOMATO_100);
-	}
-	function handleAddDishe() {
+	function handleAddQuantity() {
 		setQuantity(quantity + 1);
+	}
+
+	function handleRemoveQuantity() {
+		setQuantity(quantity - 1);
+		if (quantity == 0) {
+			alert('Quantidade zerada');
+		}
+		setQuantity(0);
 	}
 
 	function handleEditDishe(id) {
 		navigate(`/editdishe/${id}`);
-	}
-
-	function handleRemoveDishe() {
-		if (quantity > 0) {
-			setQuantity(quantity - 1);
-		}
 	}
 
 	return (
@@ -76,7 +72,7 @@ export function Carrousel({ dishes }) {
 									onClick={() => handleEditDishe(dishe.id)}
 								/>
 							) : (
-								<button id="btn-favorite">
+								<button onClick={handleAddFavorites(dishe.id)}>
 									<svg
 										width="26"
 										height="24"
@@ -101,9 +97,9 @@ export function Carrousel({ dishes }) {
 							{!admin ? (
 								<div className="choose-dishe">
 									<div>
-										<ButtonText icon={Minus} onClick={handleRemoveDishe} />
-										<span>0</span>
-										<ButtonText icon={Plus} onClick={handleAddDishe} />
+										<ButtonText icon={Minus} onClick={handleRemoveQuantity} />
+										<span>{quantity}</span>
+										<ButtonText icon={Plus} onClick={handleAddQuantity} />
 									</div>
 									<Button title="incluir" />
 								</div>

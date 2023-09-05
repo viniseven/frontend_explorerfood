@@ -26,7 +26,6 @@ export function EditDishe() {
 	const [newIngredient, setNewIngredient] = useState('');
 	const [price, setPrice] = useState('');
 	const [description, setDescription] = useState('');
-	const [dishe, setDishe] = useState();
 
 	function handleBackPage() {
 		navigate(-1);
@@ -57,8 +56,6 @@ export function EditDishe() {
 		}
 
 		const fileUpload = new FormData();
-
-		console.log(dishe.img_dishe);
 
 		fileUpload.append('image', image);
 
