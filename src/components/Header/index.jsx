@@ -10,14 +10,35 @@ import { ButtonText } from '../ButtonText';
 import { Sidebar } from '../Sidebar';
 import { Input } from '../Input';
 import { Button } from '../Button';
+import Modal from 'react-modal';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 
 export function Header(props) {
   const { signOut, user } = useAuth();
   const [sidebar, setSideBar] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const { admin } = user;
+
+  const styleModal = {
+    content: {
+      maxWidth: '40rem',
+      height: '30rem',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '3rem',
+      justifyContent: 'center',
+      textAlign: 'center',
+      backgroundColor: 'rgb(25, 34, 39)',
+      border: 'none',
+      top: '25%',
+      margin: '0 auto'
+    },
+    overlay: {
+      backgroundColor: 'rgba(25, 34, 39, 0.6)'
+    }
+  };
 
   function handleSidebarValueInput(value) {
     props.valueInput(value);
@@ -25,6 +46,10 @@ export function Header(props) {
 
   function showSideBar() {
     setSideBar(!sidebar);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
   }
 
   return (
@@ -66,7 +91,18 @@ export function Header(props) {
         </>
       )}
 
-      <ButtonText icon={SignOut} id="logout" onClick={signOut} />
+      <ButtonText
+        icon={SignOut}
+        id="logout"
+        onClick={() => setModalOpen(true)}
+      />
+      <Modal isOpen={modalOpen} style={styleModal}>
+        <h1>Deseja sair?</h1>
+        <div style={{ display: 'flex', gap: '5rem' }}>
+          <Button title="Sair" onClick={signOut} />
+          <Button title="Cancelar" onClick={() => closeModal()} />
+        </div>
+      </Modal>
     </Container>
   );
 }

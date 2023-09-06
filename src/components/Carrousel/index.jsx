@@ -22,7 +22,7 @@ export function Carrousel({ dishes }) {
 	const { user } = useAuth();
 	const [quantity, setQuantity] = useState(0);
 	const [favorites, setFavorites] = useState([]);
-	const [newFavorite, setNewFavorite] = useState('');
+	const [newFavorites, setNewFavorites] = useState('');
 
 	const { admin } = user;
 
@@ -42,7 +42,11 @@ export function Carrousel({ dishes }) {
 		carousel.current.scrollLeft += carousel.current.offsetWidth;
 	}
 
-	function handleAddFavorites(disheId) {}
+	const handleAddFavorites = (disheId) => {
+		setFavorites((prevState) => [...prevState, disheId]);
+	};
+
+	console.log(favorites);
 
 	function handleAddQuantity() {
 		setQuantity(quantity + 1);
@@ -72,7 +76,7 @@ export function Carrousel({ dishes }) {
 									onClick={() => handleEditDishe(dishe.id)}
 								/>
 							) : (
-								<button onClick={handleAddFavorites(dishe.id)}>
+								<button onClick={() => handleAddFavorites(dishe.id)}>
 									<svg
 										width="26"
 										height="24"

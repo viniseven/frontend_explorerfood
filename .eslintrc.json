@@ -1,12 +1,19 @@
 {
-	"extends": ["plugin:prettier/recommended"],
-
-	"plugins": ["prettier"],
-
-	"rules": {
-		"prettier/prettier": "error",
-		"parserOptions": {
-			"sourceType": "module"
-		}
-	}
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "class-methods-use-this": 0,
+    "no-undef": "off",
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "eslint-disable camelcase": true
+  }
 }
