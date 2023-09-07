@@ -14,7 +14,7 @@ export default createGlobalStyle`
   }
 
   body{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     font-size: 1.6rem;
@@ -24,7 +24,6 @@ export default createGlobalStyle`
 
     display: flex;
     justify-content: center;
-   
   }
 
   a{

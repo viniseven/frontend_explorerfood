@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3.2rem;
-
   height: 11.4rem;
 
   grid-area: 'header';
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
 
   .logo {
     display: flex;
@@ -27,6 +27,10 @@ export const Container = styled.div`
 
       color: ${({ theme }) => theme.COLORS.CAKE};
     }
+  }
+
+  .search {
+    min-width: 35rem;
   }
 
   #new-dishe {
