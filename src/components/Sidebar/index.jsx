@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import AppContext from '../../context/AppContext';
 
 import { Container, ContentMenu } from './styles';
 
@@ -10,14 +13,11 @@ import { Footer } from '../Footer';
 
 import { MagnifyingGlass, X } from '@phosphor-icons/react';
 
-export function Sidebar({ active, sidebarValueInput }) {
+export function Sidebar({ active }) {
   const { user, signOut } = useAuth();
+  const { setSearch } = useContext(AppContext);
 
   const { admin } = user;
-
-  function handleValueInputSidebar(value) {
-    sidebarValueInput(value);
-  }
 
   const closeSidebar = () => {
     active(false);
@@ -34,7 +34,7 @@ export function Sidebar({ active, sidebarValueInput }) {
         <Input
           icon={MagnifyingGlass}
           placeholder="Busque por pratos ou ingredientes"
-          onChange={(e) => handleValueInputSidebar(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
         />
 
         <div className="btn-actions">

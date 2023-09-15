@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -16,12 +16,11 @@ import { Container } from './styles';
 import { ButtonText } from '../ButtonText';
 import { Button } from '../Button';
 import { Card } from '../Card';
+import { ActionsDishe } from '../ActionsDishe';
 
 export function Carrousel({ dishes }) {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const [quantity, setQuantity] = useState(0);
-  const [favoritesList, setFavoritesList] = useState([]);
 
   const { admin } = user;
 
@@ -31,6 +30,10 @@ export function Carrousel({ dishes }) {
     navigate(`/details/${id}`);
   }
 
+  const handleSelectFavorites = (disheId) => {
+    setFavoriteSelected(disheId);
+  };
+
   function handleLeftClick(e) {
     e.preventDefault();
     carousel.current.scrollLeft -= carousel.current.offsetWidth;
@@ -39,24 +42,6 @@ export function Carrousel({ dishes }) {
   function handleRightClick(e) {
     e.preventDefault();
     carousel.current.scrollLeft += carousel.current.offsetWidth;
-  }
-
-  const handleAddFavorites = (disheId) => {
-    setFavoritesList((prevState) => [...prevState, disheId]);
-  };
-
-  console.log(favoritesList);
-
-  function handleAddQuantity() {
-    setQuantity(quantity + 1);
-  }
-
-  function handleRemoveQuantity() {
-    setQuantity(quantity - 1);
-    if (quantity == 0) {
-      alert('Quantidade zerada');
-    }
-    setQuantity(0);
   }
 
   function handleEditDishe(id) {
@@ -75,7 +60,7 @@ export function Carrousel({ dishes }) {
                   onClick={() => handleEditDishe(dishe.id)}
                 />
               ) : (
-                <button onClick={() => handleAddFavorites(dishe.id)}>
+                <button onClick={() => handleSelectFavorites(dishe.id)}>
                   <svg
                     width="26"
                     height="24"
@@ -87,26 +72,15 @@ export function Carrousel({ dishes }) {
                   </svg>
                 </button>
               )}
-
               <img
                 src={`${api.defaults.baseURL}/files/${dishe.img_dishe}`}
                 alt="Imagem do prato"
                 onClick={() => handleDetailsPage(dishe.id)}
               />
-
               <h1>{dishe.name}</h1>
               <p>{dishe.description}</p>
               <span>R$ {dishe.price}</span>
-              {!admin ? (
-                <div className="choose-dishe">
-                  <div>
-                    <ButtonText icon={Minus} onClick={handleRemoveQuantity} />
-                    <span>{quantity}</span>
-                    <ButtonText icon={Plus} onClick={handleAddQuantity} />
-                  </div>
-                  <Button title="incluir" />
-                </div>
-              ) : null}
+              {!admin ? <ActionsDishe /> : null}
             </Card>
           ))}
         </div>

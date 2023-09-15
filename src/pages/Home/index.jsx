@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import { Container } from './styles';
 
@@ -6,90 +6,75 @@ import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
 import { Footer } from '../../components/Footer';
 import { Carrousel } from '../../components/Carrousel';
+import { Orders } from '../../components/Orders';
 
 import cookie from '../../assets/cookie.svg';
 import { api } from '../../services/api';
+import AppContext from '../../context/AppContext';
 
 export function Home() {
-	const [searchDishe, setSearchDishe] = useState('');
-	const [dishes, setDishes] = useState([]);
+  const { search, dishes, setDishes } = useContext(AppContext);
 
-	const dataValueInput = (valueSearch) => {
-		setSearchDishe(valueSearch);
-	};
+  const dataValueInput = (valueSearch) => {
+    setSearchDishe(valueSearch);
+  };
 
-	useEffect(() => {
-		async function fetchDishes() {
-			let response;
+  useEffect(() => {
+    async function fetchDishes() {
+      let response;
 
-			response = await api.get(`/dishes?name=${searchDishe}&ingredient`);
+      response = await api.get(`/dishes?name=${search}&ingredient`);
 
-			if (response.data == 0) {
-				response = await api.get(`/dishes?name&ingredient=${searchDishe}`);
-			}
+      if (response.data == 0) {
+        response = await api.get(`/dishes?name&ingredient=${search}`);
+      }
 
-			setDishes(response.data);
-		}
+      setDishes(response.data);
+    }
 
-		fetchDishes();
-	}, [searchDishe]);
+    fetchDishes();
+  }, [search]);
 
-	dishes.map((dishe) => {
-		dishe.price = dishe.price.toLocaleString('pt-BR', {
-			style: 'currency',
-			currency: 'BRL',
-		});
-	});
+  dishes.map((dishe) => {
+    dishe.price = dishe.price.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  });
 
-	const categoryRefeicao = dishes.filter(
-		(dishe) => dishe.category === 'Refeicoes',
-	);
+  const categories = [...new Set(dishes.map((dishe) => dishe.category))];
 
-	const categorySobremesas = dishes.filter(
-		(dishe) => dishe.category === 'Sobremesas',
-	);
+  return (
+    <Container>
+      <Header />
+      <main>
+        <div className="text-header">
+          <img
+            src={cookie}
+            alt="Imagem de cookies flutuando no ar com folhas e frutas"
+          />
 
-	const categoryBebidas = dishes.filter(
-		(dishe) => dishe.category === 'Bebidas',
-	);
+          <div>
+            <h1>Sabores inigualáveis</h1>
+            <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+          </div>
+        </div>
 
-	return (
-		<Container>
-			<Header valueInput={dataValueInput} />
-			<main>
-				<div className="text-header">
-					<img
-						src={cookie}
-						alt="Imagem de cookies flutuando no ar com folhas e frutas"
-					/>
+        <div className="content-sections">
+          {categories.map((category) => {
+            const categoryDishes = dishes.filter(
+              (dishe) => dishe.category === category
+            );
 
-					<div>
-						<h1>Sabores inigualáveis</h1>
-						<p>Sinta o cuidado do preparo com ingredientes selecionados</p>
-					</div>
-				</div>
-
-				<div className="content-sections">
-					{categoryRefeicao.length > 0 && (
-						<Section title="Refeições">
-							<Carrousel dishes={categoryRefeicao} />
-						</Section>
-					)}
-
-					{categorySobremesas.length > 0 && (
-						<Section title="Sobremesas">
-							<Carrousel dishes={categorySobremesas} />
-						</Section>
-					)}
-
-					{categoryBebidas.length > 0 && (
-						<Section title="Bebidas">
-							<Carrousel dishes={categoryBebidas} />
-						</Section>
-					)}
-				</div>
-			</main>
-			<Footer />
-		</Container>
-	);
+            return (
+              <Section key={category} title={category}>
+                <Carrousel dishes={categoryDishes} />
+              </Section>
+            );
+          })}
+        </div>
+      </main>
+      <Footer />
+    </Container>
+  );
 }

@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
+
+import AppContext from '../../context/AppContext';
 
 import icon from '../../assets/icon_explorer.svg';
 
@@ -14,10 +16,12 @@ import Modal from 'react-modal';
 
 import { List, Receipt, MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 
-export function Header(props) {
+export function Header() {
   const { signOut, user } = useAuth();
   const [sidebar, setSideBar] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const { setSearch } = useContext(AppContext);
 
   const { admin } = user;
 
@@ -40,10 +44,6 @@ export function Header(props) {
     }
   };
 
-  function handleSidebarValueInput(value) {
-    props.valueInput(value);
-  }
-
   function showSideBar() {
     setSideBar(!sidebar);
   }
@@ -56,13 +56,7 @@ export function Header(props) {
     <Container>
       <div className="sidebar-menu">
         <ButtonText icon={List} onClick={showSideBar} />
-        {sidebar && (
-          <Sidebar
-            active={setSideBar}
-            admin
-            sidebarValueInput={handleSidebarValueInput}
-          />
-        )}
+        {sidebar && <Sidebar active={setSideBar} admin />}
       </div>
 
       <div className="logo">
@@ -76,7 +70,7 @@ export function Header(props) {
         <Input
           icon={MagnifyingGlass}
           placeholder="Busque por pratos ou ingredientes"
-          onChange={(e) => handleSidebarValueInput(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 

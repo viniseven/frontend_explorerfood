@@ -12,6 +12,11 @@ export const Container = styled.div`
   justify-content: center;
   gap: 3.2rem;
 
+  position: fixed;
+  z-index: 1;
+
+  width: 100%;
+
   .logo {
     display: flex;
     gap: 8px;

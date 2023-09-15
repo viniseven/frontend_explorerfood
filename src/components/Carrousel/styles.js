@@ -83,27 +83,6 @@ export const Container = styled.div`
         font-weight: 400;
         color: ${({ theme }) => theme.COLORS.CAKE};
       }
-
-      .choose-dishe {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.6rem;
-
-        width: 100%;
-
-        div {
-          display: flex;
-          gap: 1.4rem;
-
-          svg {
-            width: 2.4rem;
-            height: 2.4rem;
-
-            fill: ${({ theme }) => theme.COLORS.WHITE};
-          }
-        }
-      }
     }
   }
 
@@ -148,16 +127,6 @@ export const Container = styled.div`
 
           p {
             display: block;
-          }
-
-          .choose-dishe {
-            flex-direction: row;
-            justify-content: center;
-
-            > button {
-              width: 9.2rem;
-              height: 4.8rem;
-            }
           }
         }
       }
