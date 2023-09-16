@@ -1,4 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
+
+import { CartOrders } from '../../context/Provider';
+import AppContext from '../../context/AppContext';
 
 import { Container } from './styles';
 
@@ -6,18 +9,12 @@ import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
 import { Footer } from '../../components/Footer';
 import { Carrousel } from '../../components/Carrousel';
-import { Orders } from '../../components/Orders';
 
 import cookie from '../../assets/cookie.svg';
 import { api } from '../../services/api';
-import AppContext from '../../context/AppContext';
 
 export function Home() {
   const { search, dishes, setDishes } = useContext(AppContext);
-
-  const dataValueInput = (valueSearch) => {
-    setSearchDishe(valueSearch);
-  };
 
   useEffect(() => {
     async function fetchDishes() {
@@ -68,7 +65,9 @@ export function Home() {
 
             return (
               <Section key={category} title={category}>
-                <Carrousel dishes={categoryDishes} />
+                <CartOrders>
+                  <Carrousel dishes={categoryDishes} />
+                </CartOrders>
               </Section>
             );
           })}

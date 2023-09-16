@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 
 import { AuthProvider } from './hooks/auth';
-import Provider from './context/Provider';
+import { Provider } from './context/Provider';
 
 import GlobalStyles from './styles/global.js';
 import theme from './styles/theme.js';

@@ -60,6 +60,15 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.CAKE};
   }
 
+  .actions-dishe {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+
+    width: 100%;
+  }
+
   @media (min-width: 768px) {
     width: 30.4rem;
 
@@ -69,6 +78,10 @@ export const Container = styled.div`
 
     p {
       display: block;
+    }
+
+    .actions-dishe {
+      flex-direction: row;
     }
   }
 `;
