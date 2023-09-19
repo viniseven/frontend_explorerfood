@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import AppContext from '../../context/AppContext';
 
 import { CaretLeft, CaretRight, PencilSimple } from '@phosphor-icons/react';
 import { useAuth } from '../../hooks/auth';
@@ -13,6 +15,7 @@ import { Card } from '../Card';
 import { ActionsDishe } from '../ActionsDishe';
 
 export function Carrousel({ dishes }) {
+  const { setSearch } = useContext(AppContext);
   const navigate = useNavigate();
 
   const { user } = useAuth();
@@ -22,6 +25,7 @@ export function Carrousel({ dishes }) {
 
   function handleDetailsPage(id) {
     navigate(`/details/${id}`);
+    setSearch('');
   }
 
   const handleSelectFavorites = (disheId) => {

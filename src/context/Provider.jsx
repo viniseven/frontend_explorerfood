@@ -8,6 +8,8 @@ function Provider({ children }) {
   const [search, setSearch] = useState('');
   const [dishes, setDishes] = useState([]);
 
+  console.log(search);
+
   const value = {
     search,
     setSearch,
