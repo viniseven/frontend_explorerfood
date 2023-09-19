@@ -1,12 +1,11 @@
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from './styles';
 
 import { ButtonText } from '../ButtonText';
 import { Minus, Plus } from '@phosphor-icons/react';
-import QuantityContext from '../../context/QuantityContext';
 
-export function ActionsDishe() {
-  let quantity;
+export function ActionsDishe({ onQuantityUpdate }) {
+  const [quantity, setQuantity] = useState(0);
 
   function handleRemoveQuantity() {
     if (quantity == 0) {
@@ -23,6 +22,10 @@ export function ActionsDishe() {
     }
     setQuantity(quantity + 1);
   }
+
+  useEffect(() => {
+    onQuantityUpdate(quantity);
+  }, [quantity]);
 
   return (
     <Container>

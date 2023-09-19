@@ -1,7 +1,8 @@
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AppContext from '../../context/AppContext';
+import CartContext from '../../context/CartContext';
 
 import { CaretLeft, CaretRight, PencilSimple } from '@phosphor-icons/react';
 import { useAuth } from '../../hooks/auth';
@@ -16,6 +17,9 @@ import { ActionsDishe } from '../ActionsDishe';
 
 export function Carrousel({ dishes }) {
   const { setSearch } = useContext(AppContext);
+  const { handleAddDisheToCart } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(0);
+
   const navigate = useNavigate();
 
   const { user } = useAuth();
@@ -45,8 +49,6 @@ export function Carrousel({ dishes }) {
   function handleEditDishe(id) {
     navigate(`/editdishe/${id}`);
   }
-
-  function handleIncludeDisheInOrder() {}
 
   return (
     <Container>
@@ -82,8 +84,11 @@ export function Carrousel({ dishes }) {
               <span>R$ {dishe.price}</span>
               {!admin ? (
                 <div className="actions-dishe">
-                  <ActionsDishe />
-                  <Button title="incluir" />
+                  <ActionsDishe onQuantityUpdate={setQuantity} />
+                  <Button
+                    title="incluir"
+                    onClick={() => handleAddDisheToCart(dishe, quantity)}
+                  />
                 </div>
               ) : null}
             </Card>

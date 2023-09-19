@@ -20,18 +20,38 @@ function Provider({ children }) {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 
-function DisheQuantity({ children }) {
-  const [quantity, setQuantity] = useState(0);
+function CartProvider({ children }) {
+  const [cart, setCart] = useState([]);
+
+  function handleAddDisheToCart(dishe, quantity) {
+    const itemObject = { dishe, quantity };
+
+    setCart([...cart, itemObject]);
+  }
+
+  function handleAddRemoveToCart(clickedDishe) {
+    const filteredCart = cart.filter(
+      (cartItem) => cart.indexOf(cartItem) !== clickedDishe
+    );
+    setCart(filteredCart);
+  }
+
+  function clearCart() {
+    setCart([]);
+  }
 
   return (
-    <QuantityContext.Provider value={{ quantity, setQuantity }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        handleAddDisheToCart,
+        handleAddRemoveToCart,
+        clearCart
+      }}
+    >
       {children}
-    </QuantityContext.Provider>
+    </CartContext.Provider>
   );
 }
 
-function CartProvider({ children }) {
-  return <CartContext.Provider>{children}</CartContext.Provider>;
-}
-
-export { Provider, DisheQuantity, CartProvider };
+export { Provider, CartProvider };
