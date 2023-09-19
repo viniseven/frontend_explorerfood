@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import AppContext from './AppContext';
-import CartContext from './CartContext';
 import QuantityContext from './QuantityContext';
+import CartContext from './CartContext';
 
 function Provider({ children }) {
   const [search, setSearch] = useState('');
@@ -18,28 +18,6 @@ function Provider({ children }) {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 
-function CartOrders({ children }) {
-  const [cart, setCart] = useState([]);
-  const [order, setOrder] = useState({});
-  const [idDishe, setIdDishe] = useState('');
-
-  console.log(cart);
-
-  return (
-    <CartContext.Provider
-      value={{
-        cart,
-        setCart,
-        setOrder,
-        idDishe,
-        setIdDishe
-      }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-}
-
 function DisheQuantity({ children }) {
   const [quantity, setQuantity] = useState(0);
 
@@ -50,4 +28,8 @@ function DisheQuantity({ children }) {
   );
 }
 
-export { Provider, CartOrders, DisheQuantity };
+function CartProvider({ children }) {
+  return <CartContext.Provider>{children}</CartContext.Provider>;
+}
+
+export { Provider, DisheQuantity, CartProvider };

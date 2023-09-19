@@ -18,8 +18,7 @@ export const Container = styled.div`
       img {
         margin-top: 1.6rem;
 
-        min-width: 26rem;
-        max-width: 39rem;
+        width: clamp(16.5rem, 13.5201rem + 12.7144vw, 24.375rem);
       }
 
       h1 {

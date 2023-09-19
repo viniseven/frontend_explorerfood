@@ -1,6 +1,5 @@
 import { useEffect, useContext } from 'react';
 
-import { CartOrders } from '../../context/Provider';
 import AppContext from '../../context/AppContext';
 
 import { Container } from './styles';
@@ -65,9 +64,7 @@ export function Home() {
 
             return (
               <Section key={category} title={category}>
-                <CartOrders>
-                  <Carrousel dishes={categoryDishes} />
-                </CartOrders>
+                <Carrousel dishes={categoryDishes} />
               </Section>
             );
           })}

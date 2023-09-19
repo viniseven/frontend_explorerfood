@@ -6,7 +6,7 @@ import { Minus, Plus } from '@phosphor-icons/react';
 import QuantityContext from '../../context/QuantityContext';
 
 export function ActionsDishe() {
-  const { quantity, setQuantity } = useContext(QuantityContext);
+  let quantity;
 
   function handleRemoveQuantity() {
     if (quantity == 0) {

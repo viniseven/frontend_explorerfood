@@ -1,6 +1,5 @@
-import { useRef, useContext } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import QuantityContext from '../../context/QuantityContext';
 
 import { CaretLeft, CaretRight, PencilSimple } from '@phosphor-icons/react';
 import { useAuth } from '../../hooks/auth';
@@ -14,7 +13,6 @@ import { Card } from '../Card';
 import { ActionsDishe } from '../ActionsDishe';
 
 export function Carrousel({ dishes }) {
-  const { quantity } = useContext(QuantityContext);
   const navigate = useNavigate();
 
   const { user } = useAuth();
