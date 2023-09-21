@@ -65,7 +65,7 @@ export function Header() {
         <img src={icon} alt="" />
         <h1>food explorer</h1>
 
-        {admin ? <span>admin</span> : <></>}
+        {admin ? <span>admin</span> : null}
       </div>
 
       <div className="search">
@@ -82,12 +82,18 @@ export function Header() {
         </Link>
       ) : (
         <>
-          <ButtonText icon={Receipt} id="btn-icon-receipt" />
-          <Button
-            icon={Receipt}
-            title={`Pedidos (${cart.length})`}
-            id="btn-receipt"
-          />
+          <Link to="/orders">
+            <div className="btn-icon-orders">
+              <ButtonText icon={Receipt} />
+              <span>{cart.length}</span>
+            </div>
+
+            <Button
+              icon={Receipt}
+              title={`Pedidos (${cart.length})`}
+              id="btn-orders"
+            />
+          </Link>
         </>
       )}
 

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import AppContext from './AppContext';
-import QuantityContext from './QuantityContext';
 import CartContext from './CartContext';
 
 function Provider({ children }) {
@@ -23,12 +22,10 @@ function Provider({ children }) {
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  function handleAddDisheToCart(dishe, quantity) {
-    const itemObject = { dishe, quantity };
+  function handleAddDisheToCart(id, name, image, quantity) {
+    const itemObject = { id, name, image, quantity };
 
-    const verifyDisheCart = cart.find(
-      (itemObject) => itemObject.dishe.id == dishe.id
-    );
+    const verifyDisheCart = cart.find((itemObject) => itemObject.id == id);
 
     if (verifyDisheCart) {
       verifyDisheCart.quantity = quantity;
@@ -53,10 +50,13 @@ function CartProvider({ children }) {
     setCart([]);
   }
 
+  localStorage.setItem('cart', JSON.stringify(cart));
+
   return (
     <CartContext.Provider
       value={{
         cart,
+        setCart,
         handleAddDisheToCart,
         handleAddRemoveToCart,
         clearCart

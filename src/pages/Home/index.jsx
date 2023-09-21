@@ -70,7 +70,6 @@ export function Home() {
           })}
         </div>
       </main>
-      <Footer />
     </Container>
   );
 }

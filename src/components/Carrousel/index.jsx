@@ -20,6 +20,8 @@ export function Carrousel({ dishes }) {
   const { handleAddDisheToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
+  console.log(dishes);
+
   const navigate = useNavigate();
 
   const { user } = useAuth();
@@ -87,7 +89,14 @@ export function Carrousel({ dishes }) {
                   <ActionsDishe onQuantityUpdate={setQuantity} />
                   <Button
                     title="incluir"
-                    onClick={() => handleAddDisheToCart(dishe, quantity)}
+                    onClick={() =>
+                      handleAddDisheToCart(
+                        dishe.id,
+                        dishe.name,
+                        dishe.img_dishe,
+                        quantity
+                      )
+                    }
                   />
                 </div>
               ) : null}

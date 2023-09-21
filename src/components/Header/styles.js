@@ -39,7 +39,29 @@ export const Container = styled.div`
     width: 21.6rem;
   }
 
-  #btn-receipt {
+  .btn-icon-orders {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+      border-radius: 50%;
+
+      padding: 4px;
+
+      width: auto;
+      height: 2rem;
+
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  #btn-orders {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +93,7 @@ export const Container = styled.div`
       display: none;
     }
 
-    #btn-receipt {
+    #btn-orders {
       display: none;
     }
 
@@ -85,7 +107,7 @@ export const Container = styled.div`
       display: none;
     }
 
-    #btn-icon-receipt {
+    #btn-icon-orders {
       display: none;
     }
   }
