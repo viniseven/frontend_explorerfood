@@ -1,10 +1,11 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 
 import AppContext from '../../context/AppContext';
+import CartContext from '../../context/CartContext';
 
 import icon from '../../assets/icon_explorer.svg';
 
@@ -22,6 +23,7 @@ export function Header() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const { setSearch } = useContext(AppContext);
+  const { cart } = useContext(CartContext);
 
   const { admin } = user;
 
@@ -81,7 +83,11 @@ export function Header() {
       ) : (
         <>
           <ButtonText icon={Receipt} id="btn-icon-receipt" />
-          <Button icon={Receipt} title={`Pedidos ()`} id="btn-receipt" />
+          <Button
+            icon={Receipt}
+            title={`Pedidos (${cart.length})`}
+            id="btn-receipt"
+          />
         </>
       )}
 

@@ -26,6 +26,19 @@ function CartProvider({ children }) {
   function handleAddDisheToCart(dishe, quantity) {
     const itemObject = { dishe, quantity };
 
+    const verifyDisheCart = cart.find(
+      (itemObject) => itemObject.dishe.id == dishe.id
+    );
+
+    if (verifyDisheCart) {
+      verifyDisheCart.quantity = quantity;
+      alert(
+        'Este produto já foi selecionado, alteramos para a quantidade informada'
+      );
+      setCart([...cart]);
+      return;
+    }
+
     setCart([...cart, itemObject]);
   }
 
