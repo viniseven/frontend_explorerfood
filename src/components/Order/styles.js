@@ -13,17 +13,40 @@ export const Container = styled.div`
   }
 
   .content-order {
-    h1 {
-      font-size: 2rem;
-      line-height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+
+    max-width: 40rem;
+
+    flex-grow: 1;
+
+    .content {
+      width: 60%;
+
+      h1 {
+        font-size: 2rem;
+        line-height: 32px;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+      button {
+        color: ${({ theme }) => theme.COLORS.TOMATO_400};
+
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 19.2px;
+      }
     }
 
-    button {
-      color: ${({ theme }) => theme.COLORS.TOMATO_400};
+    .value {
+      height: 100%;
 
-      font-size: 1.2rem;
-      font-weight: 400;
-      line-height: 19.2px;
+      p {
+        color: ${({ theme }) => theme.COLORS.CAKE};
+      }
     }
   }
 `;

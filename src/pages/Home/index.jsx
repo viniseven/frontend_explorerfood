@@ -6,7 +6,6 @@ import { Container } from './styles';
 
 import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
-import { Footer } from '../../components/Footer';
 import { Carrousel } from '../../components/Carrousel';
 
 import cookie from '../../assets/cookie.svg';
@@ -30,13 +29,6 @@ export function Home() {
 
     fetchDishes();
   }, [search]);
-
-  dishes.map((dishe) => {
-    dishe.price = dishe.price.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    });
-  });
 
   const categories = [...new Set(dishes.map((dishe) => dishe.category))];
 

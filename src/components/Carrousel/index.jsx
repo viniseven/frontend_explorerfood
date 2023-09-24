@@ -20,8 +20,6 @@ export function Carrousel({ dishes }) {
   const { handleAddDisheToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
-  console.log(dishes);
-
   const navigate = useNavigate();
 
   const { user } = useAuth();
@@ -83,7 +81,12 @@ export function Carrousel({ dishes }) {
               />
               <h1>{dishe.name}</h1>
               <p>{dishe.description}</p>
-              <span>R$ {dishe.price}</span>
+              <span>
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL'
+                }).format(dishe.price)}
+              </span>
               {!admin ? (
                 <div className="actions-dishe">
                   <ActionsDishe onQuantityUpdate={setQuantity} />
@@ -94,6 +97,7 @@ export function Carrousel({ dishes }) {
                         dishe.id,
                         dishe.name,
                         dishe.img_dishe,
+                        dishe.price,
                         quantity
                       )
                     }

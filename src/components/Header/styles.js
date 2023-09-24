@@ -33,6 +33,11 @@ export const Container = styled.div`
 
   .search {
     min-width: 35rem;
+
+    > :first-child {
+      background-color: ${({ theme }) => theme.COLORS.DARK_900};
+      padding: 1.2rem 1.4rem;
+    }
   }
 
   #new-dishe {
@@ -68,6 +73,8 @@ export const Container = styled.div`
     gap: 8px;
 
     max-width: 21.6rem;
+
+    padding: 1.2rem 3.2rem;
   }
 
   > button {
@@ -107,7 +114,7 @@ export const Container = styled.div`
       display: none;
     }
 
-    #btn-icon-orders {
+    .btn-icon-orders {
       display: none;
     }
   }

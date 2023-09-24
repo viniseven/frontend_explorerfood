@@ -84,6 +84,22 @@ export function EditDishe() {
         }
       });
   }
+
+  async function handleDeleteDishe() {
+    await api
+      .delete(`/dishes/${params.id}`)
+      .then(() => {
+        navigate('/');
+        alert('Prato excluído com sucesso');
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert('Não foi possível excluir prato, tente novamente');
+        }
+      });
+  }
   useEffect(() => {
     async function fetchIngredients() {
       const response = await api.get(`/dishes/${params.id}`);
@@ -189,7 +205,7 @@ export function EditDishe() {
           </div>
 
           <div className="buttom-footer-form">
-            <Button title="Excluir prato" />
+            <Button title="Excluir prato" onClick={handleDeleteDishe} />
             <Button title="Salvar alterações" onClick={handleUpdateDishe} />
           </div>
         </Form>

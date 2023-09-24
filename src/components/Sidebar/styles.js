@@ -39,8 +39,11 @@ export const Container = styled.div`
       width: 0;
     }
     to {
-      width: 100%;
+      width: 40%;
     }
+  }
+  @media (min-width: 768px) {
+    width: 40%;
   }
 `;
 

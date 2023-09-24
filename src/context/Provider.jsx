@@ -7,8 +7,6 @@ function Provider({ children }) {
   const [search, setSearch] = useState('');
   const [dishes, setDishes] = useState([]);
 
-  console.log(search);
-
   const value = {
     search,
     setSearch,
@@ -22,27 +20,27 @@ function Provider({ children }) {
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  function handleAddDisheToCart(id, name, image, quantity) {
-    const itemObject = { id, name, image, quantity };
+  function handleAddDisheToCart(id, name, image, price, quantity) {
+    const itemObject = { id, name, image, price, quantity };
 
     const verifyDisheCart = cart.find((itemObject) => itemObject.id == id);
 
     if (verifyDisheCart) {
-      verifyDisheCart.quantity = quantity;
       alert(
-        'Este produto já foi selecionado, alteramos para a quantidade informada'
+        'Este produto já está no seu carrinho, para alterar quantidade, remova-o do carrinho e insira-o novamente com a quantidade desejada'
       );
-      setCart([...cart]);
       return;
+    }
+
+    if (itemObject.quantity > 1) {
+      itemObject.price += itemObject.price;
     }
 
     setCart([...cart, itemObject]);
   }
 
-  function handleAddRemoveToCart(clickedDishe) {
-    const filteredCart = cart.filter(
-      (cartItem) => cart.indexOf(cartItem) !== clickedDishe
-    );
+  function handleRemoveToCart(clickedDishe) {
+    const filteredCart = cart.filter((cartItem) => cartItem.id != clickedDishe);
     setCart(filteredCart);
   }
 
@@ -50,15 +48,13 @@ function CartProvider({ children }) {
     setCart([]);
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
-
   return (
     <CartContext.Provider
       value={{
         cart,
         setCart,
         handleAddDisheToCart,
-        handleAddRemoveToCart,
+        handleRemoveToCart,
         clearCart
       }}
     >

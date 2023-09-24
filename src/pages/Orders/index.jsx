@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 import { Container } from './styles';
 
@@ -8,16 +8,11 @@ import { Header } from '../../components/Header';
 import { Order } from '../../components/Order';
 
 export function Orders() {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
-  useEffect(() => {
-    async function returnCartStorage() {
-      const savedCart = (await JSON.parse(localStorage.getItem('cart'))) || [];
-
-      console.log(savedCart);
-    }
-    returnCartStorage();
-  }, []);
+  const totalPrice = cart.reduce((acumulator, dishe) => {
+    return dishe.price + acumulator;
+  }, 0);
 
   return (
     <Container>
@@ -30,6 +25,14 @@ export function Orders() {
           {cart.map((dishe, index) => (
             <Order key={index} dishe={dishe} />
           ))}
+
+          <p>
+            Total:{' '}
+            {new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL'
+            }).format(totalPrice)}
+          </p>
         </div>
       </main>
     </Container>
