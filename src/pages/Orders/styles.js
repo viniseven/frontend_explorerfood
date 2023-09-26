@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100vw;
 
   main {
-    margin: 5.6rem 0 0 1.9rem;
+    margin: 5.6rem 3.7rem 0 1.9rem;
 
     h1 {
       font-weight: 500;
@@ -20,10 +20,21 @@ export const Container = styled.div`
       flex-direction: column;
       gap: 2rem;
 
+      position: relative;
+
       > p {
         margin-top: 1.8rem;
 
         font-size: 2rem;
+      }
+
+      #btn-advance-payment {
+        padding: 1.2rem 3.2rem;
+
+        width: 21.6rem;
+
+        position: fixed;
+        right: 3.7rem;
       }
     }
   }

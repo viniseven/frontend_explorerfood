@@ -44,18 +44,13 @@ function CartProvider({ children }) {
     setCart(filteredCart);
   }
 
-  function clearCart() {
-    setCart([]);
-  }
-
   return (
     <CartContext.Provider
       value={{
         cart,
         setCart,
         handleAddDisheToCart,
-        handleRemoveToCart,
-        clearCart
+        handleRemoveToCart
       }}
     >
       {children}

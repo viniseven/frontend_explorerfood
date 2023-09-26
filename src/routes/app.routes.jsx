@@ -7,6 +7,7 @@ import { AddDishe } from '../pages/AddDishe';
 import { Details } from '../pages/Details';
 import { EditDishe } from '../pages/EditDishe';
 import { Orders } from '../pages/Orders';
+import { Payment } from '../pages/Payment';
 
 export function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export function AppRoutes() {
         <Route path="/details/:id" element={<Details />} />
         <Route path="/editdishe/:id" element={<EditDishe />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </CartProvider>
   );
