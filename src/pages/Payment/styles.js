@@ -74,7 +74,18 @@ export const Container = styled.div`
         display: flex;
         justify-content: center;
 
-        padding: 3.1rem 0 3.1rem;
+        padding: 5rem 2.7rem 5rem;
+
+        .credit-card {
+          display: flex;
+          flex-direction: column;
+          gap: 3.7rem;
+
+          .info-credit-card {
+            display: flex;
+            gap: 1.7rem;
+          }
+        }
       }
     }
   }
