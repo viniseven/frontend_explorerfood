@@ -77,13 +77,29 @@ export const Container = styled.div`
         padding: 5rem 2.7rem 5rem;
 
         .credit-card {
-          display: flex;
-          flex-direction: column;
-          gap: 3.7rem;
-
           .info-credit-card {
             display: flex;
             gap: 1.7rem;
+            margin: 3.7rem 0 3.7rem;
+          }
+        }
+
+        .info-status-payment {
+          text-align: center;
+
+          svg {
+            fill: ${({ theme }) => theme.COLORS.LIGHT_400};
+          }
+
+          p {
+            color: ${({ theme }) => theme.COLORS.LIGHT_400};
+
+            font-weight: 700;
+            font-size: 2rem;
+
+            line-height: 3.2rem;
+
+            margin-top: 2.4rem;
           }
         }
       }
