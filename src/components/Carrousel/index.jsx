@@ -65,8 +65,9 @@ export function Carrousel({ dishes }) {
                 <button onClick={() => handleSelectFavorites(dishe.id)}>
                   <svg
                     width="26"
-                    height="24"
+                    height="26"
                     stroke="white"
+                    fill="none"
                     viewBox="0 0 26 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >

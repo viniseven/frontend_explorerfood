@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import AppContext from './AppContext';
 import CartContext from './CartContext';
@@ -33,16 +33,27 @@ function CartProvider({ children }) {
     }
 
     if (itemObject.quantity > 1) {
-      itemObject.price += itemObject.price;
+      itemObject.price += itemObject.quantity;
     }
 
-    setCart([...cart, itemObject]);
+    const newCart = [...cart, itemObject];
+
+    localStorage.setItem('@foodexplorer:cart', JSON.stringify(newCart));
+    setCart(newCart);
   }
 
   function handleRemoveToCart(clickedDishe) {
     const filteredCart = cart.filter((cartItem) => cartItem.id != clickedDishe);
+    localStorage.setItem('@foodexplorer:cart', JSON.stringify(filteredCart));
     setCart(filteredCart);
   }
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('@foodexplorer:cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
 
   return (
     <CartContext.Provider

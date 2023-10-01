@@ -37,20 +37,6 @@ export const Container = styled.div`
 
     max-width: 30.4rem;
 
-    > button {
-      width: fit-content;
-
-      position: absolute;
-      right: 2.4rem;
-
-      background: none;
-      border: none;
-
-      svg {
-        stroke-width: 1.5;
-      }
-    }
-
     .card-content {
       display: flex;
       flex-direction: column;
@@ -89,11 +75,13 @@ export const Container = styled.div`
   .buttons-carousel {
     position: relative;
     bottom: 25rem;
+    z-index: 1;
 
     justify-content: space-between;
     align-items: center;
 
     width: 100%;
+    height: 100%;
 
     display: none;
 

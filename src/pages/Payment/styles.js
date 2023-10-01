@@ -16,32 +16,65 @@ export const Container = styled.div`
     .payment {
       border: 1.5px solid ${({ theme }) => theme.COLORS.LIGHT_600};
 
-      border-radius: 5px 5px 0 0;
+      border-radius: 5px;
 
       display: flex;
+      flex-direction: column;
       justify-content: center;
 
       margin-top: 3.2rem;
 
-      .model-pix {
+      .model-payment {
         display: flex;
-        align-items: center;
-        justify-content: center;
 
-        border-right: 1.5px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+        border-bottom: 1.5px solid ${({ theme }) => theme.COLORS.LIGHT_600};
 
-        padding: 3.2rem;
+        .model-pix {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-        width: 50%;
+          gap: 1rem;
+
+          border-right: 1.5px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+
+          padding: 3.2rem;
+
+          width: 50%;
+
+          > button {
+            display: flex;
+            gap: 1rem;
+
+            font-weight: 400;
+            font-size: 1.6rem;
+          }
+        }
+
+        .model-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          padding: 3.2rem;
+
+          width: 50%;
+
+          > button {
+            display: flex;
+            gap: 1rem;
+
+            font-weight: 400;
+            font-size: 1.6rem;
+          }
+        }
       }
 
-      .model-card {
+      .content-data-payment {
         display: flex;
-        align-items: center;
+        justify-content: center;
 
-        padding: 3.2rem;
-
-        width: 50%;
+        padding: 3.1rem 0 3.1rem;
       }
     }
   }
