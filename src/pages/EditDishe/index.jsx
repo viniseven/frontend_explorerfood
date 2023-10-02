@@ -12,6 +12,7 @@ import { ButtonText } from '../../components/ButtonText';
 import { Button } from '../../components/Button';
 import { InputMarket } from '../../components/InputMarket';
 import { TextArea } from '../../components/TextArea';
+import { Footer } from '../../components/Footer';
 
 import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
 
@@ -210,6 +211,7 @@ export function EditDishe() {
           </div>
         </Form>
       </main>
+      <Footer />
     </Container>
   );
 }

@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import AppContext from './AppContext';
 import CartContext from './CartContext';
+
+import { api } from '../services/api';
 
 function Provider({ children }) {
   const [search, setSearch] = useState('');
@@ -19,6 +23,7 @@ function Provider({ children }) {
 
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [orderConfirm, setOrderConfirm] = useState(false);
 
   function handleAddDisheToCart(id, name, image, price, quantity) {
     const itemObject = { id, name, image, price, quantity };
@@ -48,6 +53,26 @@ function CartProvider({ children }) {
     setCart(filteredCart);
   }
 
+  async function handleCreateOrder() {
+    setOrderConfirm(true);
+    const navigate = useNavigate();
+    const orderCart = localStorage.getItem('@foodexplorer:cart');
+
+    await api
+      .post('/orders', { orderCart })
+      .then(() => {
+        alert('Pedido realizado com sucesso');
+        navigate('/');
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert('Não foi possível realizar pedido');
+        }
+      });
+  }
+
   useEffect(() => {
     const savedCart = localStorage.getItem('@foodexplorer:cart');
     if (savedCart) {
@@ -61,7 +86,10 @@ function CartProvider({ children }) {
         cart,
         setCart,
         handleAddDisheToCart,
-        handleRemoveToCart
+        handleRemoveToCart,
+        orderConfirm,
+        setOrderConfirm,
+        handleCreateOrder
       }}
     >
       {children}

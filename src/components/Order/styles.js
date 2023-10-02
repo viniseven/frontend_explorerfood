@@ -19,11 +19,7 @@ export const Container = styled.div`
 
     max-width: 40rem;
 
-    flex-grow: 1;
-
     .content {
-      width: 60%;
-
       h1 {
         font-size: 2rem;
         line-height: 32px;

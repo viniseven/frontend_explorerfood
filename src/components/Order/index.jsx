@@ -23,15 +23,7 @@ export function Order({ dishe }) {
             onClick={() => handleRemoveToCart(dishe.id)}
           />
         </div>
-        <div className="value">
-          <p>
-            {' '}
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL'
-            }).format(dishe.price)}
-          </p>
-        </div>
+        <div className="value"></div>
       </div>
     </Container>
   );

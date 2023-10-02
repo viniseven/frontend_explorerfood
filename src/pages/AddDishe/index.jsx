@@ -9,6 +9,7 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { InputMarket } from '../../components/InputMarket';
 import { TextArea } from '../../components/TextArea';
+import { Footer } from '../../components/Footer';
 
 import { CaretLeft, UploadSimple } from '@phosphor-icons/react';
 
@@ -176,6 +177,7 @@ export function AddDishe() {
           </div>
         </Form>
       </main>
+      <Footer />
     </Container>
   );
 }
