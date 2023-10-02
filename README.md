@@ -3,11 +3,11 @@
 Aplicação de um cardápio digital para um restaurante, para realização de pedidos e visualização detalhada de todos os pratos.
 
 
-
+<div align="center">
 
 ![Logo](https://i.imgur.com/eUa2vnf.png[/img])
 
-
+</div>
 ## Funcionalidades - Admin
 
 - Cadastrar Pratos
@@ -29,26 +29,16 @@ Aplicação de um cardápio digital para um restaurante, para realização de pe
 **Back-end:** Node, Express, Knex, Cors, Multer
 
 
-## Executando o Back-End
+## Executando o Front-End
 
-No Back-End insira uma porta e um secret no arquivo .env.example
-
-```bash
-  AUTH_SECRET=
-  PORT=
-```
-Instale as Dependências
+Instale as dependências
 ```bash
   npm install
 ```
-Agora inicie o servidor Back-End
+Agora inicie o servidor Front-End
 ```bash
-  npm start
-```
-
-
-
-    
+  npm run dev
+```    
 ## Autores
 
 - [viniseven](https://www.github.com/viniseven)
