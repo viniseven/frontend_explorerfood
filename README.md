@@ -38,7 +38,13 @@ Instale as dependências
 Agora inicie o servidor Front-End
 ```bash
   npm run dev
-```    
+```
+
+## Usuário Admin
+```bash
+  email: admin@gmail.com
+  password: admin123
+```
 ## Autores
 
 - [viniseven](https://www.github.com/viniseven)
