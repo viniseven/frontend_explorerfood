@@ -22,4 +22,10 @@ export const Container = styled.div`
 
     padding-left: 2rem;
   }
+  
+  @media screen and (max-width: 480px) { 
+  {
+    font-size: 16px;
+  }
+}
 `;
