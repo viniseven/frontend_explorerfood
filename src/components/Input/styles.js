@@ -24,7 +24,7 @@ export const Container = styled.div`
   }
   
   @media screen and (max-width: 480px) { 
-  {
+  > input{
     font-size: 16px;
   }
 }
