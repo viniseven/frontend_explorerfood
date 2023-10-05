@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+  height: 7rem;
+
+  grid-area: 'footer';
 
   display: flex;
   justify-content: space-around;
@@ -11,8 +14,7 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  position: fixed;
-  bottom: 0;
+  position: static;
 
   .brand {
     display: flex;
